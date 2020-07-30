@@ -1,0 +1,103 @@
+{
+  "name": "vs-code-test",
+  "displayName": "vs-code-test",
+  "description": "A test",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.44.0"
+  },
+  "categories": [
+    "Other",
+    "Snippets"
+  ],
+  "activationEvents": [
+    "onCommand:vs-code-test.catalogInfo",
+    "onCommand:vs-code-test.catalogSubmit",
+    "onCommand:vs-code-test.createNerdpack",
+    "onCommand:vs-code-test.createCatalog",
+    "onCommand:vs-code-test.runNerdpack",
+    "onCommand:vs-code-test.publishNerdpack",
+    "onCommand:vs-code-test.deployNerdpack",
+    "onCommand:vs-code-test.subscribeNerdpack",
+    "onCommand:vs-code-test.unsubscribeNerdpack",
+    "onCommand:vs-code-test.selectProfile",
+    "onCommand:workbench.action.tasks.runTask"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "vs-code-test.createNerdpack",
+        "title": "Nerdpack: create"
+      },
+      {
+        "command": "vs-code-test.subscribeNerdpack",
+        "title": "Nerdpack: subscribe account to nerdpack"
+      },
+      {
+        "command": "vs-code-test.unsubscribeNerdpack",
+        "title": "Nerdpack: unsubscribe account from nerdpack"
+      },
+      {
+        "command": "vs-code-test.createCatalog",
+        "title": "Nerdpack: create catalog listing"
+      },
+      {
+        "command": "vs-code-test.catalogSubmit",
+        "title": "Nerdpack: submit catalog listing"
+      },
+      {
+        "command": "vs-code-test.catalogInfo",
+        "title": "Nerdpack: show published catalog listing info"
+      },
+      {
+        "command": "vs-code-test.runNerdpack",
+        "title": "Nerdpack: run local development"
+      },
+      {
+        "command": "vs-code-test.publishNerdpack",
+        "title": "Nerdpack: publish"
+      },
+      {
+        "command": "vs-code-test.deployNerdpack",
+        "title": "Nerdpack: deploy"
+      },
+      {
+        "command": "vs-code-test.selectProfile",
+        "title": "New Relic Profiles: select default"
+      }
+    ],
+    "taskDefinitions": [
+      {
+        "type": "exampleProvider"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.44.0",
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.11.0",
+    "eslint": "^6.8.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "glob": "^7.1.6",
+    "mocha": "^7.1.1",
+    "typescript": "^3.8.3",
+    "vscode-test": "^1.3.0"
+  }
+}
