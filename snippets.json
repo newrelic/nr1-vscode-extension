@@ -4,7 +4,7 @@
     "scope": "javascript",
     "body": [
       "<NerdGraphQuery query={${1:element}} variables={${2:element}}>",
-      "\t{(data, loading, errors) => {",
+      "\t{({ data, loading, error }) => {",
 
       "\t\t// View the nerdgraph schema at https://staging-one.newrelic.com/launcher/graphql-api-explorer.graphql-api-explorer-launcher",
       "\t\t$0",
