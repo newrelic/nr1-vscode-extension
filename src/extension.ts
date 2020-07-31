@@ -94,7 +94,7 @@ const deployNerdpack = (channel: string) => {
 const subscribeNerdpack = (channel: string) => {
   const path = getPath();
   cp.exec(
-    `nr1 nerdpack:subscribe -c ${channel}`,
+    cliCommands.subscribeNerdpack(channel),
     { cwd: path },
     handleResponse
   );
@@ -102,7 +102,7 @@ const subscribeNerdpack = (channel: string) => {
 
 const unsubscribeNerdpack = () => {
   const path = getPath();
-  cp.exec("nr1 nerdpack:unsubscribe", { cwd: path }, handleResponse);
+  cp.exec(cliCommands.unsubscribeNerdpack(), { cwd: path }, handleResponse);
 };
 
 const nr1RunNerdpack = () => {
@@ -160,12 +160,12 @@ export function activate(context: vscode.ExtensionContext) {
 
     vscode.commands.registerCommand("vs-code-test.catalogInfo", () => {
       const path = getPath();
-      cp.exec("nr1 catalog:info", { cwd: path }, handleResponse);
+      cp.exec(cliCommands.catalogInfo(), { cwd: path }, handleResponse);
     }),
 
     vscode.commands.registerCommand("vs-code-test.catalogSubmit", () => {
       const path = getPath();
-      cp.exec("nr1 catalog:submit", { cwd: path }, handleResponse);
+      cp.exec(cliCommands.catalogSubmit(), { cwd: path }, handleResponse);
     }),
 
     vscode.commands.registerCommand("vs-code-test.runNerdpack", async () => {
@@ -232,15 +232,11 @@ export function activate(context: vscode.ExtensionContext) {
     });
     const profileName = await vscode.window.showQuickPick(profileNames);
     const path = vscode.workspace.rootPath;
-    cp.exec(
-      `nr1 profiles:default -n ${profileName?.replace(" (current)", "")}`,
-      { cwd: path },
-      () => {
-        vscode.window.showInformationMessage(
-          `Default profile updated to ${profileName}`
-        );
-      }
-    );
+    cp.exec(cliCommands.selectProfile(profileName), { cwd: path }, () => {
+      vscode.window.showInformationMessage(
+        `Default profile updated to ${profileName}`
+      );
+    });
   });
 }
 
