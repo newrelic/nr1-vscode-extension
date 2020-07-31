@@ -5,12 +5,15 @@ const cp = require("child_process");
 const fs = require("fs");
 const os = require("os");
 
+import * as cliCommands from './nr1-cli-commands';
+
 /**********
  * TODO
  * Create and open a workspace on nr1Create
  * On all other commands, present a picker based on folders in the workspace that have an nr1.json
  *******/
 
+ // possible helper
 const getPath = () => {
   const rootPath = vscode.workspace.rootPath;
   if (rootPath) {
@@ -20,6 +23,7 @@ const getPath = () => {
   throw new Error("Could not find path");
 };
 
+ // possible helper
 const handleResponse = (err: Error, stdout: string, stderr: string) => {
   if (err) {
     vscode.window.showErrorMessage(stderr);
@@ -31,7 +35,7 @@ const handleResponse = (err: Error, stdout: string, stderr: string) => {
 
 const nr1Create = async ({ name, filePath }: any) => {
   cp.exec(
-    `cd ${filePath} && nr1 create -t nerdpack -n ${name}`,
+    `cd ${filePath} && ${cliCommands.createNerdpack(name)}`,
     "~",
     async (err: Error, stdout: string, stderr: string) => {
       if (err) {
@@ -53,7 +57,7 @@ const nr1Create = async ({ name, filePath }: any) => {
 const nr1CreateCatalog = () => {
   const path = getPath();
   cp.exec(
-    `nr1 create --type='catalog'`,
+    cliCommands.createCatalog(),
     { cwd: path },
     async (err: Error, stdout: string, stderr: string) => {
       if (err) {
@@ -79,12 +83,12 @@ const nr1CreateCatalog = () => {
 
 const publishNerdpack = (channel: string) => {
   const path = getPath();
-  cp.exec(`nr1 nerdpack:publish -c ${channel}`, { cwd: path }, handleResponse);
+  cp.exec(cliCommands.publishNerdpack(channel), { cwd: path }, handleResponse);
 };
 
 const deployNerdpack = (channel: string) => {
   const path = getPath();
-  cp.exec(`nr1 nerdpack:deploy -c ${channel}`, { cwd: path }, handleResponse);
+  cp.exec(cliCommands.deployNerdpack(channel), { cwd: path }, handleResponse);
 };
 
 const subscribeNerdpack = (channel: string) => {
@@ -111,6 +115,7 @@ const nr1RunNerdpack = () => {
   vscode.env.openExternal(uri);
 };
 
+// Possible helper function
 const pickChannel = async () => {
   const channel = await vscode.window.showQuickPick(["STABLE", "BETA", "DEV"]);
   if (!channel) {
