@@ -1,3 +1,10 @@
+const fs = require("fs");
+const os = require("os");
+
+import * as vscode from "vscode";
+
+import runCommand from "./utils/run-command";
+
 export const createNerdpack = (nerdpackName: string) =>
   `nr1 create -t nerdpack -n ${nerdpackName}`;
 
@@ -18,5 +25,26 @@ export const catalogInfo = () => "nr1 catalog:info";
 
 export const catalogSubmit = () => "nr1 catalog:submit";
 
-export const selectProfile = (profileName: string | undefined) =>
+const setProfile = (profileName: string | undefined) =>
   `nr1 profiles:default -n ${profileName?.replace(" (current)", "")}`;
+
+export const selectProfile = async () => {
+  const credentialPath = `${os.homedir()}/.newrelic/credentials.json`;
+  const defaultPath = `${os.homedir()}/.newrelic/default-profile.json`;
+
+  const profiles = JSON.parse(fs.readFileSync(credentialPath));
+  const currentDefault = JSON.parse(fs.readFileSync(defaultPath));
+  const profileNames = Object.keys(profiles).map((profileName) => {
+    if (profileName === currentDefault) {
+      return `${profileName} (current default)`;
+    }
+    return profileName;
+  });
+  const profileName = await vscode.window.showQuickPick(profileNames);
+
+  runCommand(setProfile(profileName), () => {
+    vscode.window.showInformationMessage(
+      `Default profile updated to ${profileName}`
+    );
+  });
+};

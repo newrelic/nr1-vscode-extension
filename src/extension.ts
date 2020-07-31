@@ -1,9 +1,6 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-const cp = require("child_process");
-const fs = require("fs");
-const os = require("os");
 
 import * as cliCommands from "./nr1-cli-commands";
 import pickChannel from "./utils/pick-channel";
@@ -114,26 +111,10 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  vscode.commands.registerCommand("vs-code-test.selectProfile", async () => {
-    const credentialPath = `${os.homedir()}/.newrelic/credentials.json`;
-    const defaultPath = `${os.homedir()}/.newrelic/default-profile.json`;
-
-    const profiles = JSON.parse(fs.readFileSync(credentialPath));
-    const currentDefault = JSON.parse(fs.readFileSync(defaultPath));
-    const profileNames = Object.keys(profiles).map((profileName) => {
-      if (profileName === currentDefault) {
-        return `${profileName} (current default)`;
-      }
-      return profileName;
-    });
-    const profileName = await vscode.window.showQuickPick(profileNames);
-
-    runCommand(cliCommands.selectProfile(profileName), () => {
-      vscode.window.showInformationMessage(
-        `Default profile updated to ${profileName}`
-      );
-    });
-  });
+  vscode.commands.registerCommand(
+    "vs-code-test.selectProfile",
+    cliCommands.selectProfile
+  );
 }
 
 // this method is called when your extension is deactivated
