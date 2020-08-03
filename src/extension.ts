@@ -5,6 +5,7 @@ import * as vscode from "vscode";
 import * as cliCommands from "./nr1-cli-commands";
 import pickChannel from "./utils/pick-channel";
 import runCommand from "./utils/run-command";
+import getNerdpackNameInput from './utils/get-nerdpack-name-input';
 import handleCreateCatalogResponse from "./response-handlers/create-catalog";
 import getResponseHandlerForCreate from "./response-handlers/create-nerdpack";
 import { COMMANDS } from "./constants/commands";
@@ -14,27 +15,6 @@ import { COMMANDS } from "./constants/commands";
  * Create and open a workspace on nr1Create
  * On all other commands, present a picker based on folders in the workspace that have an nr1.json
  *******/
-
-const nr1Create = async ({ name, filePath }: any) =>
-  runCommand(
-    `cd ${filePath} && ${cliCommands.createNerdpack(name)}`,
-    getResponseHandlerForCreate(name, filePath),
-    "~"
-  );
-
-const nr1CreateCatalog = () =>
-  runCommand(cliCommands.createCatalog(), handleCreateCatalogResponse);
-
-const publishNerdpack = (channel: string) =>
-  runCommand(cliCommands.publishNerdpack(channel));
-
-const deployNerdpack = (channel: string) =>
-  runCommand(cliCommands.deployNerdpack(channel));
-
-const subscribeNerdpack = (channel: string) =>
-  runCommand(cliCommands.subscribeNerdpack(channel));
-
-const unsubscribeNerdpack = () => runCommand(cliCommands.unsubscribeNerdpack());
 
 const nr1RunNerdpack = () => {
   var terminal = vscode.window.createTerminal("Nerdpack serve");
@@ -50,9 +30,9 @@ const nr1RunNerdpack = () => {
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.commands.registerCommand(COMMANDS.CREATE_CATALOG, async () => {
-      nr1CreateCatalog();
-    }),
+    vscode.commands.registerCommand(COMMANDS.CREATE_CATALOG, async () => 
+      runCommand(cliCommands.createCatalog(), handleCreateCatalogResponse)
+    ),
 
     vscode.commands.registerCommand(COMMANDS.CATALOG_INFO, () =>
       runCommand(cliCommands.catalogInfo())
@@ -67,43 +47,39 @@ export function activate(context: vscode.ExtensionContext) {
     }),
 
     vscode.commands.registerCommand(COMMANDS.CREATE_NERDPACK, async () => {
-      const nameInput = vscode.window.showInputBox({ prompt: "Nerdpack name" });
-      const name = await nameInput;
-      let filePath = vscode.workspace.rootPath;
-      if (!filePath) {
-        const selected = await vscode.window.showOpenDialog({
-          canSelectFiles: false,
-          canSelectFolders: true,
-          canSelectMany: false,
-          openLabel: "Select folder",
-        });
-        filePath = selected?.[0].path;
-      }
+      const { filePath, name } = await getNerdpackNameInput();
       if (!filePath) {
         throw new Error("Have to select a file, please");
       }
+      if (!name) {
+        throw new Error("Have to give your nerdpack a name, please");
+      }
 
-      nr1Create({ name, filePath });
+      runCommand(
+        `cd ${filePath} && ${cliCommands.createNerdpack(name)}`,
+        getResponseHandlerForCreate(name, filePath),
+        "~"
+      );
     })
   );
 
   vscode.commands.registerCommand(COMMANDS.PUBLISH_NERDPACK, async () => {
     const channel = await pickChannel();
-    publishNerdpack(channel);
+    runCommand(cliCommands.publishNerdpack(channel));
   });
 
   vscode.commands.registerCommand(COMMANDS.DEPLOY_NERDPACK, async () => {
     const channel = await pickChannel();
-    deployNerdpack(channel);
+    runCommand(cliCommands.deployNerdpack(channel));
   });
 
   vscode.commands.registerCommand(COMMANDS.SUBSCRIBE_NERDPACK, async () => {
     const channel = await pickChannel();
-    subscribeNerdpack(channel);
+    runCommand(cliCommands.subscribeNerdpack(channel));
   });
 
   vscode.commands.registerCommand(COMMANDS.UNSUBSCRIBE_NERDPACK, async () => {
-    unsubscribeNerdpack();
+    runCommand(cliCommands.unsubscribeNerdpack());
   });
 
   vscode.commands.registerCommand(
