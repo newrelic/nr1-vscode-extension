@@ -1,7 +1,6 @@
 const fs = require("fs");
 const os = require("os");
 
-import { profile } from "console";
 import * as vscode from "vscode";
 
 import runCommand from "./utils/run-command";
