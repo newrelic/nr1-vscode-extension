@@ -1,6 +1,6 @@
 {
-  "name": "vs-code-test",
-  "displayName": "vs-code-test",
+  "name": "nr1",
+  "displayName": "nr1",
   "description": "A test",
   "version": "0.0.1",
   "engines": {
@@ -11,17 +11,16 @@
     "Snippets"
   ],
   "activationEvents": [
-    "onCommand:vs-code-test.catalogInfo",
-    "onCommand:vs-code-test.catalogSubmit",
-    "onCommand:vs-code-test.createNerdpack",
-    "onCommand:vs-code-test.createCatalog",
-    "onCommand:vs-code-test.runNerdpack",
-    "onCommand:vs-code-test.publishNerdpack",
-    "onCommand:vs-code-test.deployNerdpack",
-    "onCommand:vs-code-test.subscribeNerdpack",
-    "onCommand:vs-code-test.unsubscribeNerdpack",
-    "onCommand:vs-code-test.selectProfile",
-    "onCommand:workbench.action.tasks.runTask"
+    "onCommand:nr1.catalogInfo",
+    "onCommand:nr1.catalogSubmit",
+    "onCommand:nr1.createNerdpack",
+    "onCommand:nr1.createCatalog",
+    "onCommand:nr1.runNerdpack",
+    "onCommand:nr1.publishNerdpack",
+    "onCommand:nr1.deployNerdpack",
+    "onCommand:nr1.subscribeNerdpack",
+    "onCommand:nr1.unsubscribeNerdpack",
+    "onCommand:nr1.selectProfile"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -33,49 +32,44 @@
     ],
     "commands": [
       {
-        "command": "vs-code-test.createNerdpack",
+        "command": "nr1.createNerdpack",
         "title": "Nerdpack: create"
       },
       {
-        "command": "vs-code-test.subscribeNerdpack",
+        "command": "nr1.subscribeNerdpack",
         "title": "Nerdpack: subscribe account to nerdpack"
       },
       {
-        "command": "vs-code-test.unsubscribeNerdpack",
+        "command": "nr1.unsubscribeNerdpack",
         "title": "Nerdpack: unsubscribe account from nerdpack"
       },
       {
-        "command": "vs-code-test.createCatalog",
+        "command": "nr1.createCatalog",
         "title": "Nerdpack: create catalog listing"
       },
       {
-        "command": "vs-code-test.catalogSubmit",
+        "command": "nr1.catalogSubmit",
         "title": "Nerdpack: submit catalog listing"
       },
       {
-        "command": "vs-code-test.catalogInfo",
+        "command": "nr1.catalogInfo",
         "title": "Nerdpack: show published catalog listing info"
       },
       {
-        "command": "vs-code-test.runNerdpack",
+        "command": "nr1.runNerdpack",
         "title": "Nerdpack: run local development"
       },
       {
-        "command": "vs-code-test.publishNerdpack",
+        "command": "nr1.publishNerdpack",
         "title": "Nerdpack: publish"
       },
       {
-        "command": "vs-code-test.deployNerdpack",
+        "command": "nr1.deployNerdpack",
         "title": "Nerdpack: deploy"
       },
       {
-        "command": "vs-code-test.selectProfile",
+        "command": "nr1.selectProfile",
         "title": "New Relic Profiles: select default"
-      }
-    ],
-    "taskDefinitions": [
-      {
-        "type": "exampleProvider"
       }
     ]
   },

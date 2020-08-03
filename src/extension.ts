@@ -7,6 +7,7 @@ import pickChannel from "./utils/pick-channel";
 import runCommand from "./utils/run-command";
 import handleCreateCatalogResponse from "./response-handlers/create-catalog";
 import getResponseHandlerForCreate from "./response-handlers/create-nerdpack";
+import { COMMANDS } from "./constants/commands";
 
 /**********
  * TODO
@@ -49,23 +50,23 @@ const nr1RunNerdpack = () => {
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.commands.registerCommand("vs-code-test.createCatalog", async () => {
+    vscode.commands.registerCommand(COMMANDS.CREATE_CATALOG, async () => {
       nr1CreateCatalog();
     }),
 
-    vscode.commands.registerCommand("vs-code-test.catalogInfo", () =>
+    vscode.commands.registerCommand(COMMANDS.CATALOG_INFO, () =>
       runCommand(cliCommands.catalogInfo())
     ),
 
-    vscode.commands.registerCommand("vs-code-test.catalogSubmit", () =>
+    vscode.commands.registerCommand(COMMANDS.CATALOG_SUBMIT, () =>
       runCommand(cliCommands.catalogSubmit())
     ),
 
-    vscode.commands.registerCommand("vs-code-test.runNerdpack", async () => {
+    vscode.commands.registerCommand(COMMANDS.RUN_NERDPACK, async () => {
       nr1RunNerdpack();
     }),
 
-    vscode.commands.registerCommand("vs-code-test.createNerdpack", async () => {
+    vscode.commands.registerCommand(COMMANDS.CREATE_NERDPACK, async () => {
       const nameInput = vscode.window.showInputBox({ prompt: "Nerdpack name" });
       const name = await nameInput;
       let filePath = vscode.workspace.rootPath;
@@ -86,33 +87,27 @@ export function activate(context: vscode.ExtensionContext) {
     })
   );
 
-  vscode.commands.registerCommand("vs-code-test.publishNerdpack", async () => {
+  vscode.commands.registerCommand(COMMANDS.PUBLISH_NERDPACK, async () => {
     const channel = await pickChannel();
     publishNerdpack(channel);
   });
 
-  vscode.commands.registerCommand("vs-code-test.deployNerdpack", async () => {
+  vscode.commands.registerCommand(COMMANDS.DEPLOY_NERDPACK, async () => {
     const channel = await pickChannel();
     deployNerdpack(channel);
   });
 
-  vscode.commands.registerCommand(
-    "vs-code-test.subscribeNerdpack",
-    async () => {
-      const channel = await pickChannel();
-      subscribeNerdpack(channel);
-    }
-  );
+  vscode.commands.registerCommand(COMMANDS.SUBSCRIBE_NERDPACK, async () => {
+    const channel = await pickChannel();
+    subscribeNerdpack(channel);
+  });
+
+  vscode.commands.registerCommand(COMMANDS.UNSUBSCRIBE_NERDPACK, async () => {
+    unsubscribeNerdpack();
+  });
 
   vscode.commands.registerCommand(
-    "vs-code-test.unsubscribeNerdpack",
-    async () => {
-      unsubscribeNerdpack();
-    }
-  );
-
-  vscode.commands.registerCommand(
-    "vs-code-test.selectProfile",
+    COMMANDS.SELECT_PROFILE,
     cliCommands.selectProfile
   );
 }
