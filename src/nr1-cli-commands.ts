@@ -1,6 +1,7 @@
 const fs = require("fs");
 const os = require("os");
 
+import { profile } from "console";
 import * as vscode from "vscode";
 
 import runCommand from "./utils/run-command";
@@ -43,8 +44,9 @@ export const selectProfile = async () => {
   const profileName = await vscode.window.showQuickPick(profileNames);
 
   runCommand(setProfile(profileName), () => {
-    vscode.window.showInformationMessage(
-      `Default profile updated to ${profileName}`
-    );
+    profileName &&
+      vscode.window.showInformationMessage(
+        `Default profile updated to ${profileName}`
+      );
   });
 };
