@@ -14,6 +14,8 @@
     "onCommand:nr1.catalogInfo",
     "onCommand:nr1.catalogSubmit",
     "onCommand:nr1.createNerdpack",
+    "onCommand:nr1.createNerdlet",
+    "onCommand:nr1.createLauncher",
     "onCommand:nr1.createCatalog",
     "onCommand:nr1.runNerdpack",
     "onCommand:nr1.publishNerdpack",
@@ -33,7 +35,15 @@
     "commands": [
       {
         "command": "nr1.createNerdpack",
-        "title": "Nerdpack: create"
+        "title": "Nerdpack: create a nerdpack"
+      },
+      {
+        "command": "nr1.createNerdlet",
+        "title": "Nerdpack: create a nerdlet"
+      },
+      {
+        "command": "nr1.createLauncher",
+        "title": "Nerdpack: create a launcher"
       },
       {
         "command": "nr1.subscribeNerdpack",

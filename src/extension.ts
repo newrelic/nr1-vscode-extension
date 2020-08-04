@@ -6,7 +6,10 @@ import * as cliCommands from "./nr1-cli-commands";
 import pickChannel from "./utils/pick-channel";
 import pickProfile from "./utils/pick-profile";
 import runCommand from "./utils/run-command";
-import getNerdpackNameInput from "./utils/get-nerdpack-name-input";
+import {
+  getNameInput,
+  getNerdpackNameAndFilePathInput,
+} from "./utils/get-nerdpack-name-input";
 import handleCreateCatalogResponse from "./response-handlers/create-catalog";
 import getResponseHandlerForCreate from "./response-handlers/create-nerdpack";
 import { COMMANDS } from "./constants/commands";
@@ -46,7 +49,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand(COMMANDS.RUN_NERDPACK, nr1RunNerdpack),
 
     vscode.commands.registerCommand(COMMANDS.CREATE_NERDPACK, async () => {
-      const { filePath, name } = await getNerdpackNameInput();
+      const { filePath, name } = await getNerdpackNameAndFilePathInput();
       if (!filePath) {
         throw new Error("Have to select a file, please");
       }
@@ -61,6 +64,26 @@ export function activate(context: vscode.ExtensionContext) {
       );
     })
   );
+
+  vscode.commands.registerCommand(COMMANDS.CREATE_NERDLET, async () => {
+    const nerdletName = await getNameInput();
+
+    if (!nerdletName) {
+      throw new Error("Have to give your nerdlet a name, please");
+    }
+
+    runCommand(cliCommands.createNerdlet(nerdletName));
+  });
+
+  vscode.commands.registerCommand(COMMANDS.CREATE_LAUNCHER, async () => {
+    const launcherName = await getNameInput();
+
+    if (!launcherName) {
+      throw new Error("Have to give your launcher a name, please");
+    }
+
+    runCommand(cliCommands.createLauncher(launcherName));
+  });
 
   vscode.commands.registerCommand(COMMANDS.PUBLISH_NERDPACK, async () => {
     const channel = await pickChannel();
