@@ -10,8 +10,9 @@ import {
   getNameInput,
   getNerdpackNameAndFilePathInput,
 } from "./utils/get-nerdpack-name-input";
+import getUuid from "./utils/get-uuid";
 import handleCreateCatalogResponse from "./response-handlers/create-catalog";
-import getResponseHandlerForCreate from "./response-handlers/create-nerdpack";
+import handleCreateNerdpackResponse from "./response-handlers/create-nerdpack";
 import { COMMANDS } from "./constants/commands";
 
 /**********
@@ -59,7 +60,7 @@ export function activate(context: vscode.ExtensionContext) {
 
       runCommand(
         `cd ${filePath} && ${cliCommands.createNerdpack(name)}`,
-        getResponseHandlerForCreate(name, filePath),
+        handleCreateNerdpackResponse(name, filePath),
         "~"
       );
     }),
@@ -118,6 +119,22 @@ export function activate(context: vscode.ExtensionContext) {
           handleSetProfileResponse
         );
       }
+    }),
+
+    vscode.commands.registerCommand(COMMANDS.GENERATE_UUID, () => {
+      getUuid(async (uuid) => {
+        if (uuid) {
+          const answer = await vscode.window.showQuickPick(["Yes", "No"], {
+            placeHolder: `Replace existing UUID? (${uuid})`,
+          });
+
+          if (answer === "No") {
+            return;
+          }
+        }
+
+        runCommand(cliCommands.generateUuid());
+      });
     })
   );
 }

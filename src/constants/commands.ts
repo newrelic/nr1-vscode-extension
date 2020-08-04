@@ -11,4 +11,5 @@ export const COMMANDS = {
   SUBSCRIBE_NERDPACK: "nr1.subscribeNerdpack",
   UNSUBSCRIBE_NERDPACK: "nr1.unsubscribeNerdpack",
   SELECT_PROFILE: "nr1.selectProfile",
+  GENERATE_UUID: "nr1.generateUuid",
 };

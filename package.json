@@ -22,7 +22,8 @@
     "onCommand:nr1.deployNerdpack",
     "onCommand:nr1.subscribeNerdpack",
     "onCommand:nr1.unsubscribeNerdpack",
-    "onCommand:nr1.selectProfile"
+    "onCommand:nr1.selectProfile",
+    "onCommand:nr1.generateUuid"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -80,6 +81,10 @@
       {
         "command": "nr1.selectProfile",
         "title": "New Relic Profiles: select default"
+      },
+      {
+        "command": "nr1.generateUuid",
+        "title": "Nerdpack: generate uuid"
       }
     ]
   },

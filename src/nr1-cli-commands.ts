@@ -26,3 +26,5 @@ export const catalogSubmit = () => "nr1 catalog:submit";
 
 export const setProfile = (profileName: string) =>
   `nr1 profiles:default -n ${profileName?.replace(" (current)", "")}`;
+
+export const generateUuid = () => "nr1 nerdpack:uuid -g -f";
