@@ -62,61 +62,64 @@ export function activate(context: vscode.ExtensionContext) {
         getResponseHandlerForCreate(name, filePath),
         "~"
       );
-    })
-  );
+    }),
 
-  vscode.commands.registerCommand(COMMANDS.CREATE_NERDLET, async () => {
-    const nerdletName = await getNameInput();
+    vscode.commands.registerCommand(COMMANDS.CREATE_NERDLET, async () => {
+      const nerdletName = await getNameInput();
 
-    if (!nerdletName) {
-      throw new Error("Have to give your nerdlet a name, please");
-    }
-
-    runCommand(cliCommands.createNerdlet(nerdletName));
-  });
-
-  vscode.commands.registerCommand(COMMANDS.CREATE_LAUNCHER, async () => {
-    const launcherName = await getNameInput();
-
-    if (!launcherName) {
-      throw new Error("Have to give your launcher a name, please");
-    }
-
-    runCommand(cliCommands.createLauncher(launcherName));
-  });
-
-  vscode.commands.registerCommand(COMMANDS.PUBLISH_NERDPACK, async () => {
-    const channel = await pickChannel();
-    runCommand(cliCommands.publishNerdpack(channel));
-  });
-
-  vscode.commands.registerCommand(COMMANDS.DEPLOY_NERDPACK, async () => {
-    const channel = await pickChannel();
-    runCommand(cliCommands.deployNerdpack(channel));
-  });
-
-  vscode.commands.registerCommand(COMMANDS.SUBSCRIBE_NERDPACK, async () => {
-    const channel = await pickChannel();
-    runCommand(cliCommands.subscribeNerdpack(channel));
-  });
-
-  vscode.commands.registerCommand(COMMANDS.UNSUBSCRIBE_NERDPACK, async () => {
-    runCommand(cliCommands.unsubscribeNerdpack());
-  });
-
-  vscode.commands.registerCommand(COMMANDS.SELECT_PROFILE, async () => {
-    const profileName = await pickProfile();
-
-    if (profileName) {
-      function handleSetProfileResponse() {
-        vscode.window.showInformationMessage(
-          `Default profile updated to ${profileName}`
-        );
+      if (!nerdletName) {
+        throw new Error("Have to give your nerdlet a name, please");
       }
 
-      runCommand(cliCommands.setProfile(profileName), handleSetProfileResponse);
-    }
-  });
+      runCommand(cliCommands.createNerdlet(nerdletName));
+    }),
+
+    vscode.commands.registerCommand(COMMANDS.CREATE_LAUNCHER, async () => {
+      const launcherName = await getNameInput();
+
+      if (!launcherName) {
+        throw new Error("Have to give your launcher a name, please");
+      }
+
+      runCommand(cliCommands.createLauncher(launcherName));
+    }),
+
+    vscode.commands.registerCommand(COMMANDS.PUBLISH_NERDPACK, async () => {
+      const channel = await pickChannel();
+      runCommand(cliCommands.publishNerdpack(channel));
+    }),
+
+    vscode.commands.registerCommand(COMMANDS.DEPLOY_NERDPACK, async () => {
+      const channel = await pickChannel();
+      runCommand(cliCommands.deployNerdpack(channel));
+    }),
+
+    vscode.commands.registerCommand(COMMANDS.SUBSCRIBE_NERDPACK, async () => {
+      const channel = await pickChannel();
+      runCommand(cliCommands.subscribeNerdpack(channel));
+    }),
+
+    vscode.commands.registerCommand(COMMANDS.UNSUBSCRIBE_NERDPACK, async () => {
+      runCommand(cliCommands.unsubscribeNerdpack());
+    }),
+
+    vscode.commands.registerCommand(COMMANDS.SELECT_PROFILE, async () => {
+      const profileName = await pickProfile();
+
+      if (profileName) {
+        function handleSetProfileResponse() {
+          vscode.window.showInformationMessage(
+            `Default profile updated to ${profileName}`
+          );
+        }
+
+        runCommand(
+          cliCommands.setProfile(profileName),
+          handleSetProfileResponse
+        );
+      }
+    })
+  );
 }
 
 // this method is called when your extension is deactivated
