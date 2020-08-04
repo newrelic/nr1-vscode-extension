@@ -7,7 +7,7 @@
 ## To run the extension
 
 - Clone this repo
-- Open `vs-code-test.code-workspace` in VSCode
+- Open `nr1.code-workspace` in VSCode
 - Press F5 to launch the extension host
 
 ### Note: After launching the extension host, you need to have a "blank slate" to create a new nerdpack
@@ -22,7 +22,7 @@ Commands provided by the extension can be run use the VSCode command pallette (S
 
 - In the `extension.ts` file, there is an activate function. This is the "hook" that gets called to connect the commands.
 - In the `context.subscriptions.push`, add a new `vscode.commands.registerCommand()` function.
-- The first argument in the function is an "id" for the command which is the extension's id & the id for the command: `<extension-id>.<command-id>`. ex: 'vs-code-test.undeployNerdpack'
+- The first argument in the function is an "id" for the command which is the extension's id & the id for the command: `<extension-id>.<command-id>`. ex: 'nr1.undeployNerdpack'
 - The second argument is the callback function for that command
 
 ### Hook up the new command
@@ -34,7 +34,7 @@ ex:
 
 ```
 {
-  command: "vs-code-test.undeployNerdpack",
+  command: "nr1.undeployNerdpack",
   title: "Nerdpack: undeploy"
 }
 ```

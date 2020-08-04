@@ -1,105 +1,21 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-const cp = require("child_process");
-const fs = require("fs");
-const os = require("os");
+
+import * as cliCommands from "./nr1-cli-commands";
+import pickChannel from "./utils/pick-channel";
+import pickProfile from "./utils/pick-profile";
+import runCommand from "./utils/run-command";
+import getNerdpackNameInput from "./utils/get-nerdpack-name-input";
+import handleCreateCatalogResponse from "./response-handlers/create-catalog";
+import getResponseHandlerForCreate from "./response-handlers/create-nerdpack";
+import { COMMANDS } from "./constants/commands";
 
 /**********
  * TODO
  * Create and open a workspace on nr1Create
  * On all other commands, present a picker based on folders in the workspace that have an nr1.json
  *******/
-
-const getPath = () => {
-  const rootPath = vscode.workspace.rootPath;
-  if (rootPath) {
-    return rootPath;
-  }
-  vscode.window.showErrorMessage("This command must be run from a workspace");
-  throw new Error("Could not find path");
-};
-
-const handleResponse = (err: Error, stdout: string, stderr: string) => {
-  if (err) {
-    vscode.window.showErrorMessage(stderr);
-  }
-  const output = vscode.window.createOutputChannel("New Relic One");
-  output.append(stdout);
-  output.show();
-};
-
-const nr1Create = async ({ name, filePath }: any) => {
-  cp.exec(
-    `cd ${filePath} && nr1 create -t nerdpack -n ${name}`,
-    "~",
-    async (err: Error, stdout: string, stderr: string) => {
-      if (err) {
-        vscode.window.showErrorMessage(stderr);
-      } else {
-        // open the created
-        vscode.window.showInformationMessage(stdout);
-        let folderUrl = vscode.Uri.file(`${filePath}/${name}`);
-        await vscode.commands.executeCommand(
-          "vscode.openFolder",
-          folderUrl,
-          true
-        );
-      }
-    }
-  );
-};
-
-const nr1CreateCatalog = () => {
-  const path = getPath();
-  cp.exec(
-    `nr1 create --type='catalog'`,
-    { cwd: path },
-    async (err: Error, stdout: string, stderr: string) => {
-      if (err) {
-        vscode.window.showErrorMessage(stderr);
-      }
-      const output = vscode.window.createOutputChannel("New Relic One");
-      output.append(stdout);
-      output.show();
-      const files = await vscode.workspace.findFiles(
-        "**/catalog/*",
-        "node_modules",
-        10
-      );
-
-      files.forEach((fileUri) => {
-        vscode.workspace.openTextDocument(fileUri).then((document) => {
-          vscode.window.showTextDocument(document, vscode.ViewColumn.Beside);
-        });
-      });
-    }
-  );
-};
-
-const publishNerdpack = (channel: string) => {
-  const path = getPath();
-  cp.exec(`nr1 nerdpack:publish -c ${channel}`, { cwd: path }, handleResponse);
-};
-
-const deployNerdpack = (channel: string) => {
-  const path = getPath();
-  cp.exec(`nr1 nerdpack:deploy -c ${channel}`, { cwd: path }, handleResponse);
-};
-
-const subscribeNerdpack = (channel: string) => {
-  const path = getPath();
-  cp.exec(
-    `nr1 nerdpack:subscribe -c ${channel}`,
-    { cwd: path },
-    handleResponse
-  );
-};
-
-const unsubscribeNerdpack = () => {
-  const path = getPath();
-  cp.exec("nr1 nerdpack:unsubscribe", { cwd: path }, handleResponse);
-};
 
 const nr1RunNerdpack = () => {
   var terminal = vscode.window.createTerminal("Nerdpack serve");
@@ -111,131 +27,72 @@ const nr1RunNerdpack = () => {
   vscode.env.openExternal(uri);
 };
 
-const pickChannel = async () => {
-  const channel = await vscode.window.showQuickPick(["STABLE", "BETA", "DEV"]);
-  if (!channel) {
-    vscode.window.showErrorMessage("A channel is required");
-    throw new Error("A channel is required");
-  }
-  return channel;
-};
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "vs-code-test" is now active!');
-
-  var type = "exampleProvider";
-  vscode.tasks.registerTaskProvider(type, {
-    provideTasks(token?: vscode.CancellationToken) {
-      var execution = new vscode.ShellExecution('echo "Hello World"');
-      console.log("providing");
-
-      return [
-        new vscode.Task(
-          { type: type },
-          vscode.TaskScope.Global,
-          "Build",
-          "vs-code-test",
-          execution
-        ),
-      ];
-    },
-    resolveTask(task: vscode.Task, token?: vscode.CancellationToken) {
-      console.log("resolving?");
-      return task;
-    },
-  });
-
   context.subscriptions.push(
-    vscode.commands.registerCommand("vs-code-test.createCatalog", async () => {
-      nr1CreateCatalog();
-    }),
+    vscode.commands.registerCommand(COMMANDS.CREATE_CATALOG, () =>
+      runCommand(cliCommands.createCatalog(), handleCreateCatalogResponse)
+    ),
 
-    vscode.commands.registerCommand("vs-code-test.catalogInfo", () => {
-      const path = getPath();
-      cp.exec("nr1 catalog:info", { cwd: path }, handleResponse);
-    }),
+    vscode.commands.registerCommand(COMMANDS.CATALOG_INFO, () =>
+      runCommand(cliCommands.catalogInfo())
+    ),
 
-    vscode.commands.registerCommand("vs-code-test.catalogSubmit", () => {
-      const path = getPath();
-      cp.exec("nr1 catalog:submit", { cwd: path }, handleResponse);
-    }),
+    vscode.commands.registerCommand(COMMANDS.CATALOG_SUBMIT, () =>
+      runCommand(cliCommands.catalogSubmit())
+    ),
 
-    vscode.commands.registerCommand("vs-code-test.runNerdpack", async () => {
-      nr1RunNerdpack();
-    }),
+    vscode.commands.registerCommand(COMMANDS.RUN_NERDPACK, nr1RunNerdpack),
 
-    vscode.commands.registerCommand("vs-code-test.createNerdpack", async () => {
-      const nameInput = vscode.window.showInputBox({ prompt: "Nerdpack name" });
-      const name = await nameInput;
-      let filePath = vscode.workspace.rootPath;
-      if (!filePath) {
-        const selected = await vscode.window.showOpenDialog({
-          canSelectFiles: false,
-          canSelectFolders: true,
-          canSelectMany: false,
-          openLabel: "Select folder",
-        });
-        filePath = selected?.[0].path;
-      }
+    vscode.commands.registerCommand(COMMANDS.CREATE_NERDPACK, async () => {
+      const { filePath, name } = await getNerdpackNameInput();
       if (!filePath) {
         throw new Error("Have to select a file, please");
       }
+      if (!name) {
+        throw new Error("Have to give your nerdpack a name, please");
+      }
 
-      nr1Create({ name, filePath });
+      runCommand(
+        `cd ${filePath} && ${cliCommands.createNerdpack(name)}`,
+        getResponseHandlerForCreate(name, filePath),
+        "~"
+      );
     })
   );
 
-  vscode.commands.registerCommand("vs-code-test.publishNerdpack", async () => {
+  vscode.commands.registerCommand(COMMANDS.PUBLISH_NERDPACK, async () => {
     const channel = await pickChannel();
-    publishNerdpack(channel);
+    runCommand(cliCommands.publishNerdpack(channel));
   });
 
-  vscode.commands.registerCommand("vs-code-test.deployNerdpack", async () => {
+  vscode.commands.registerCommand(COMMANDS.DEPLOY_NERDPACK, async () => {
     const channel = await pickChannel();
-    deployNerdpack(channel);
+    runCommand(cliCommands.deployNerdpack(channel));
   });
 
-  vscode.commands.registerCommand(
-    "vs-code-test.subscribeNerdpack",
-    async () => {
-      const channel = await pickChannel();
-      subscribeNerdpack(channel);
-    }
-  );
+  vscode.commands.registerCommand(COMMANDS.SUBSCRIBE_NERDPACK, async () => {
+    const channel = await pickChannel();
+    runCommand(cliCommands.subscribeNerdpack(channel));
+  });
 
-  vscode.commands.registerCommand(
-    "vs-code-test.unsubscribeNerdpack",
-    async () => {
-      unsubscribeNerdpack();
-    }
-  );
+  vscode.commands.registerCommand(COMMANDS.UNSUBSCRIBE_NERDPACK, async () => {
+    runCommand(cliCommands.unsubscribeNerdpack());
+  });
 
-  vscode.commands.registerCommand("vs-code-test.selectProfile", async () => {
-    const credentialPath = `${os.homedir()}/.newrelic/credentials.json`;
-    const defaultPath = `${os.homedir()}/.newrelic/default-profile.json`;
+  vscode.commands.registerCommand(COMMANDS.SELECT_PROFILE, async () => {
+    const profileName = await pickProfile();
 
-    const profiles = JSON.parse(fs.readFileSync(credentialPath));
-    const currentDefault = JSON.parse(fs.readFileSync(defaultPath));
-    const profileNames = Object.keys(profiles).map((profileName) => {
-      if (profileName === currentDefault) {
-        return `${profileName} (current default)`;
-      }
-      return profileName;
-    });
-    const profileName = await vscode.window.showQuickPick(profileNames);
-    const path = vscode.workspace.rootPath;
-    cp.exec(
-      `nr1 profiles:default -n ${profileName?.replace(" (current)", "")}`,
-      { cwd: path },
-      () => {
+    if (profileName) {
+      function handleSetProfileResponse() {
         vscode.window.showInformationMessage(
           `Default profile updated to ${profileName}`
         );
       }
-    );
+
+      runCommand(cliCommands.setProfile(profileName), handleSetProfileResponse);
+    }
   });
 }
 
