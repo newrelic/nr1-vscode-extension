@@ -43,8 +43,9 @@ export const selectProfile = async () => {
   const profileName = await vscode.window.showQuickPick(profileNames);
 
   runCommand(setProfile(profileName), () => {
-    vscode.window.showInformationMessage(
-      `Default profile updated to ${profileName}`
-    );
+    profileName &&
+      vscode.window.showInformationMessage(
+        `Default profile updated to ${profileName}`
+      );
   });
 };
