@@ -4,8 +4,9 @@ import * as vscode from "vscode";
 
 import * as cliCommands from "./nr1-cli-commands";
 import pickChannel from "./utils/pick-channel";
+import pickProfile from "./utils/pick-profile";
 import runCommand from "./utils/run-command";
-import getNerdpackNameInput from './utils/get-nerdpack-name-input';
+import getNerdpackNameInput from "./utils/get-nerdpack-name-input";
 import handleCreateCatalogResponse from "./response-handlers/create-catalog";
 import getResponseHandlerForCreate from "./response-handlers/create-nerdpack";
 import { COMMANDS } from "./constants/commands";
@@ -30,7 +31,7 @@ const nr1RunNerdpack = () => {
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.commands.registerCommand(COMMANDS.CREATE_CATALOG, async () => 
+    vscode.commands.registerCommand(COMMANDS.CREATE_CATALOG, () =>
       runCommand(cliCommands.createCatalog(), handleCreateCatalogResponse)
     ),
 
@@ -42,9 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
       runCommand(cliCommands.catalogSubmit())
     ),
 
-    vscode.commands.registerCommand(COMMANDS.RUN_NERDPACK, async () => {
-      nr1RunNerdpack();
-    }),
+    vscode.commands.registerCommand(COMMANDS.RUN_NERDPACK, nr1RunNerdpack),
 
     vscode.commands.registerCommand(COMMANDS.CREATE_NERDPACK, async () => {
       const { filePath, name } = await getNerdpackNameInput();
@@ -82,10 +81,19 @@ export function activate(context: vscode.ExtensionContext) {
     runCommand(cliCommands.unsubscribeNerdpack());
   });
 
-  vscode.commands.registerCommand(
-    COMMANDS.SELECT_PROFILE,
-    cliCommands.selectProfile
-  );
+  vscode.commands.registerCommand(COMMANDS.SELECT_PROFILE, async () => {
+    const profileName = await pickProfile();
+
+    if (profileName) {
+      function handleSetProfileResponse() {
+        vscode.window.showInformationMessage(
+          `Default profile updated to ${profileName}`
+        );
+      }
+
+      runCommand(cliCommands.setProfile(profileName), handleSetProfileResponse);
+    }
+  });
 }
 
 // this method is called when your extension is deactivated
