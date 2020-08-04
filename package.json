@@ -23,7 +23,8 @@
     "onCommand:nr1.subscribeNerdpack",
     "onCommand:nr1.unsubscribeNerdpack",
     "onCommand:nr1.selectProfile",
-    "onCommand:nr1.generateUuid"
+    "onCommand:nr1.generateUuid",
+    "onCommand:nr1.openDeveloperDocs"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -85,6 +86,10 @@
       {
         "command": "nr1.generateUuid",
         "title": "Nerdpack: generate uuid"
+      },
+      {
+        "command": "nr1.openDeveloperDocs",
+        "title": "New Relic: open developer documentation"
       }
     ]
   },

@@ -14,6 +14,7 @@ import getUuid from "./utils/get-uuid";
 import handleCreateCatalogResponse from "./response-handlers/create-catalog";
 import handleCreateNerdpackResponse from "./response-handlers/create-nerdpack";
 import { COMMANDS } from "./constants/commands";
+import { DEVELOPER_WEBSITE_URL } from "./constants/urls";
 
 /**********
  * TODO
@@ -135,6 +136,11 @@ export function activate(context: vscode.ExtensionContext) {
 
         runCommand(cliCommands.generateUuid());
       });
+    }),
+
+    vscode.commands.registerCommand(COMMANDS.OPEN_DEVELOPER_DOCS, () => {
+      const uri = vscode.Uri.parse(DEVELOPER_WEBSITE_URL, true);
+      vscode.env.openExternal(uri);
     })
   );
 }
