@@ -14,4 +14,5 @@ export const COMMANDS = {
   SELECT_PROFILE: "nr1.selectProfile",
   GENERATE_UUID: "nr1.generateUuid",
   OPEN_DEVELOPER_DOCS: "nr1.openDeveloperDocs",
+  LIST_SUBSCRIPTIONS: "nr1.listSubscriptions",
 };

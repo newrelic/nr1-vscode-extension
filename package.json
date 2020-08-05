@@ -25,7 +25,8 @@
     "onCommand:nr1.unsubscribeNerdpack",
     "onCommand:nr1.selectProfile",
     "onCommand:nr1.generateUuid",
-    "onCommand:nr1.openDeveloperDocs"
+    "onCommand:nr1.openDeveloperDocs",
+    "onCommand:nr1.listSubscriptions"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -86,7 +87,7 @@
       },
       {
         "command": "nr1.selectProfile",
-        "title": "New Relic Profiles: select default"
+        "title": "New Relic Profile: select default"
       },
       {
         "command": "nr1.generateUuid",
@@ -95,6 +96,10 @@
       {
         "command": "nr1.openDeveloperDocs",
         "title": "New Relic: open developer documentation"
+      },
+      {
+        "command": "nr1.listSubscriptions",
+        "title": "New Relic Profile: show subscribed nerdpacks"
       }
     ]
   },

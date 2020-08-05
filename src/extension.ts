@@ -146,6 +146,10 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand(COMMANDS.OPEN_DEVELOPER_DOCS, () => {
       const uri = vscode.Uri.parse(DEVELOPER_WEBSITE_URL, true);
       vscode.env.openExternal(uri);
+    }),
+
+    vscode.commands.registerCommand(COMMANDS.LIST_SUBSCRIPTIONS, () => {
+      runCommand(cliCommands.listSubscriptions());
     })
   );
 }
