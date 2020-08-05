@@ -23,6 +23,7 @@
     "onCommand:nr1.undeployNerdpack",
     "onCommand:nr1.subscribeNerdpack",
     "onCommand:nr1.unsubscribeNerdpack",
+    "onCommand:nr1.addProfile",
     "onCommand:nr1.selectProfile",
     "onCommand:nr1.generateUuid",
     "onCommand:nr1.openDeveloperDocs",
@@ -84,6 +85,10 @@
       {
         "command": "nr1.undeployNerdpack",
         "title": "Nerdpack: undeploy"
+      },
+      {
+        "command": "nr1.addProfile",
+        "title": "New Relic Profile: add a new or existing profile"
       },
       {
         "command": "nr1.selectProfile",

@@ -5,6 +5,7 @@ import * as vscode from "vscode";
 import * as cliCommands from "./nr1-cli-commands";
 import pickChannel from "./utils/pick-channel";
 import pickProfile from "./utils/pick-profile";
+import pickRegion from "./utils/pick-region";
 import runCommand from "./utils/run-command";
 import {
   getNameInput,
@@ -14,7 +15,7 @@ import getUuid from "./utils/get-uuid";
 import handleCreateCatalogResponse from "./response-handlers/create-catalog";
 import handleCreateNerdpackResponse from "./response-handlers/create-nerdpack";
 import { COMMANDS } from "./constants/commands";
-import { DEVELOPER_WEBSITE_URL } from "./constants/urls";
+import { DEVELOPER_WEBSITE_URL, getDeveloperCenterUrl } from "./constants/urls";
 
 /**********
  * TODO
@@ -108,6 +109,15 @@ export function activate(context: vscode.ExtensionContext) {
 
     vscode.commands.registerCommand(COMMANDS.UNSUBSCRIBE_NERDPACK, async () => {
       runCommand(cliCommands.unsubscribeNerdpack());
+    }),
+
+    vscode.commands.registerCommand(COMMANDS.ADD_PROFILE, async () => {
+      const region = await pickRegion();
+
+      if (region) {
+        const uri = vscode.Uri.parse(getDeveloperCenterUrl(region), true);
+        vscode.env.openExternal(uri);
+      }
     }),
 
     vscode.commands.registerCommand(COMMANDS.SELECT_PROFILE, async () => {

@@ -11,6 +11,7 @@ export const COMMANDS = {
   UNDEPLOY_NERDPACK: "nr1.undeployNerdpack",
   SUBSCRIBE_NERDPACK: "nr1.subscribeNerdpack",
   UNSUBSCRIBE_NERDPACK: "nr1.unsubscribeNerdpack",
+  ADD_PROFILE: "nr1.addProfile",
   SELECT_PROFILE: "nr1.selectProfile",
   GENERATE_UUID: "nr1.generateUuid",
   OPEN_DEVELOPER_DOCS: "nr1.openDeveloperDocs",
