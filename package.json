@@ -20,6 +20,7 @@
     "onCommand:nr1.runNerdpack",
     "onCommand:nr1.publishNerdpack",
     "onCommand:nr1.deployNerdpack",
+    "onCommand:nr1.undeployNerdpack",
     "onCommand:nr1.subscribeNerdpack",
     "onCommand:nr1.unsubscribeNerdpack",
     "onCommand:nr1.selectProfile",
@@ -78,6 +79,10 @@
       {
         "command": "nr1.deployNerdpack",
         "title": "Nerdpack: deploy"
+      },
+      {
+        "command": "nr1.undeployNerdpack",
+        "title": "Nerdpack: undeploy"
       },
       {
         "command": "nr1.selectProfile",

@@ -8,6 +8,7 @@ export const COMMANDS = {
   CREATE_LAUNCHER: "nr1.createLauncher",
   PUBLISH_NERDPACK: "nr1.publishNerdpack",
   DEPLOY_NERDPACK: "nr1.deployNerdpack",
+  UNDEPLOY_NERDPACK: "nr1.undeployNerdpack",
   SUBSCRIBE_NERDPACK: "nr1.subscribeNerdpack",
   UNSUBSCRIBE_NERDPACK: "nr1.unsubscribeNerdpack",
   SELECT_PROFILE: "nr1.selectProfile",

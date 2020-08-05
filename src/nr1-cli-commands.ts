@@ -15,6 +15,9 @@ export const publishNerdpack = (channel: string) =>
 export const deployNerdpack = (channel: string) =>
   `nr1 nerdpack:deploy -c ${channel}`;
 
+export const undeployNerdpack = (channel: string) =>
+  `nr1 nerdpack:undeploy -c ${channel}`;
+
 export const subscribeNerdpack = (channel: string) =>
   `nr1 nerdpack:subscribe -c ${channel}`;
 

@@ -96,6 +96,11 @@ export function activate(context: vscode.ExtensionContext) {
       runCommand(cliCommands.deployNerdpack(channel));
     }),
 
+    vscode.commands.registerCommand(COMMANDS.UNDEPLOY_NERDPACK, async () => {
+      const channel = await pickChannel();
+      runCommand(cliCommands.undeployNerdpack(channel));
+    }),
+
     vscode.commands.registerCommand(COMMANDS.SUBSCRIBE_NERDPACK, async () => {
       const channel = await pickChannel();
       runCommand(cliCommands.subscribeNerdpack(channel));
