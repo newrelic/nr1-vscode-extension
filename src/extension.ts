@@ -9,7 +9,7 @@ import pickRegion from "./utils/pick-region";
 import runCommand from "./utils/run-command";
 import {
   getNameInput,
-  getNerdpackNameAndFilePathInput,
+  getFilePathInput,
 } from "./utils/get-nerdpack-name-input";
 import getUuid from "./utils/get-uuid";
 import handleCreateCatalogResponse from "./response-handlers/create-catalog";
@@ -52,7 +52,8 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand(COMMANDS.RUN_NERDPACK, nr1RunNerdpack),
 
     vscode.commands.registerCommand(COMMANDS.CREATE_NERDPACK, async () => {
-      const { filePath, name } = await getNerdpackNameAndFilePathInput();
+      const name = await getNameInput();
+      const filePath = await getFilePathInput();
       if (!filePath) {
         throw new Error("Have to select a file, please");
       }
@@ -63,7 +64,7 @@ export function activate(context: vscode.ExtensionContext) {
       runCommand(
         `cd ${filePath} && ${cliCommands.createNerdpack(name)}`,
         handleCreateNerdpackResponse(name, filePath),
-        "~"
+        filePath
       );
     }),
 

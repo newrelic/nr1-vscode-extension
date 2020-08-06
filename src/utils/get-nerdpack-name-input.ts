@@ -2,8 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 
-export const getNerdpackNameAndFilePathInput = async () => {
-  const name = await getNameInput();
+export const getFilePathInput = async () => {
   let filePath = vscode.workspace.rootPath;
   if (!filePath) {
     const selected = await vscode.window.showOpenDialog({
@@ -14,7 +13,8 @@ export const getNerdpackNameAndFilePathInput = async () => {
     });
     filePath = selected?.[0].path;
   }
-  return { filePath, name };
+
+  return filePath;
 };
 
 export const getNameInput = async () => {
