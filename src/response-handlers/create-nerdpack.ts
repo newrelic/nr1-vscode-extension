@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 
-const getResponseHandlerForCreate = (name: string, filePath: string) => {
+const handleCreateNerdpackResponse = (name: string, filePath: string) => {
   return async (err: Error, stdout: string, stderr: string) => {
     if (err) {
       vscode.window.showErrorMessage(stderr);
@@ -17,4 +17,4 @@ const getResponseHandlerForCreate = (name: string, filePath: string) => {
   };
 };
 
-export default getResponseHandlerForCreate;
+export default handleCreateNerdpackResponse;

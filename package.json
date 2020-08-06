@@ -14,13 +14,20 @@
     "onCommand:nr1.catalogInfo",
     "onCommand:nr1.catalogSubmit",
     "onCommand:nr1.createNerdpack",
+    "onCommand:nr1.createNerdlet",
+    "onCommand:nr1.createLauncher",
     "onCommand:nr1.createCatalog",
     "onCommand:nr1.runNerdpack",
     "onCommand:nr1.publishNerdpack",
     "onCommand:nr1.deployNerdpack",
+    "onCommand:nr1.undeployNerdpack",
     "onCommand:nr1.subscribeNerdpack",
     "onCommand:nr1.unsubscribeNerdpack",
-    "onCommand:nr1.selectProfile"
+    "onCommand:nr1.addProfile",
+    "onCommand:nr1.selectProfile",
+    "onCommand:nr1.generateUuid",
+    "onCommand:nr1.openDeveloperDocs",
+    "onCommand:nr1.listSubscriptions"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -33,7 +40,15 @@
     "commands": [
       {
         "command": "nr1.createNerdpack",
-        "title": "Nerdpack: create"
+        "title": "Nerdpack: create a nerdpack"
+      },
+      {
+        "command": "nr1.createNerdlet",
+        "title": "Nerdpack: create a nerdlet"
+      },
+      {
+        "command": "nr1.createLauncher",
+        "title": "Nerdpack: create a launcher"
       },
       {
         "command": "nr1.subscribeNerdpack",
@@ -68,8 +83,28 @@
         "title": "Nerdpack: deploy"
       },
       {
+        "command": "nr1.undeployNerdpack",
+        "title": "Nerdpack: undeploy"
+      },
+      {
+        "command": "nr1.addProfile",
+        "title": "New Relic Profile: add a new or existing profile"
+      },
+      {
         "command": "nr1.selectProfile",
-        "title": "New Relic Profiles: select default"
+        "title": "New Relic Profile: select default"
+      },
+      {
+        "command": "nr1.generateUuid",
+        "title": "Nerdpack: generate uuid"
+      },
+      {
+        "command": "nr1.openDeveloperDocs",
+        "title": "New Relic: open developer documentation"
+      },
+      {
+        "command": "nr1.listSubscriptions",
+        "title": "New Relic Profile: show subscribed nerdpacks"
       }
     ]
   },
