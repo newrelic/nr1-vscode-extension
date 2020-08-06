@@ -1,6 +1,6 @@
 {
   "name": "nr1",
-  "displayName": "New Relic One",
+  "displayName": "NR1",
   "description": "Build and deploy nerdpacks directly from Visual Studio Code",
   "version": "0.0.1",
   "publisher": "new-relic",
