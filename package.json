@@ -1,8 +1,9 @@
 {
   "name": "nr1",
-  "displayName": "nr1",
-  "description": "A test",
+  "displayName": "New Relic One",
+  "description": "Build and deploy nerdpacks directly from Visual Studio Code",
   "version": "0.0.1",
+  "publisher": "new-relic",
   "engines": {
     "vscode": "^1.44.0"
   },
