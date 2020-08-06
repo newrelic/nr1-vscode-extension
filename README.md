@@ -4,6 +4,8 @@
 
 Build and deploy nerdpacks directly from Visual Studio Code
 
+![Visual Studio Code using NR1 extension](assets/nr1-vscode-ext.gif)
+
 Table of Contents?
 
 ## Requirements (or Important?)
