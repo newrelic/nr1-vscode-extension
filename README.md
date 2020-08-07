@@ -2,9 +2,9 @@
 
 # New Relic VS Code extension
 
-Build and deploy New Relic apps directly from Visual Studio Code
+Build and deploy New Relic apps directly from VS Code
 
-![Visual Studio Code using NR1 extension](assets/nr1-vscode-ext.gif)
+![VS Code using NR1 extension](assets/nr1-vscode-ext.gif)
 
 ## Table of contents
 
@@ -29,7 +29,7 @@ Build and deploy New Relic apps directly from Visual Studio Code
 ## Getting started
 
 1. Install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com).
-2. Open the VSCode command palette (`Ctrl+Shift+P` in Windows/Linux or `Cmd+Shift+P` in macOS).
+2. Open the VS Code command palette (`Ctrl+Shift+P` in Windows/Linux or `Cmd+Shift+P` in macOS).
 3. Enter "Nerdpack" or "New Relic" to get a list of the available commands.
 4. Select `New Relic Profile: select default` or `Nerdpack: create a nerdpack` to get started!
 
