@@ -15,7 +15,12 @@ import getUuid from "./utils/get-uuid";
 import handleCreateCatalogResponse from "./response-handlers/create-catalog";
 import handleCreateNerdpackResponse from "./response-handlers/create-nerdpack";
 import { COMMANDS } from "./constants/commands";
-import { DEVELOPER_WEBSITE_URL, getDeveloperCenterUrl } from "./constants/urls";
+import {
+  DEVELOPER_WEBSITE_URL,
+  getDeveloperCenterUrl,
+  NR_ONE_US_URL,
+  NR_ONE_LOCAL_QUERY_PARAM,
+} from "./constants/urls";
 
 /**********
  * TODO
@@ -27,9 +32,7 @@ const nr1RunNerdpack = () => {
   var terminal = vscode.window.createTerminal("Nerdpack serve");
   terminal.show();
   terminal.sendText("nr1 nerdpack:serve");
-  const uri = vscode.Uri.parse(
-    "https://staging-one.newrelic.com?nerdpacks=local"
-  );
+  const uri = vscode.Uri.parse(NR_ONE_US_URL + NR_ONE_LOCAL_QUERY_PARAM);
   vscode.env.openExternal(uri);
 };
 
