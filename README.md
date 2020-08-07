@@ -1,43 +1,59 @@
 [![Community Project header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Community_Project.png)](https://opensource.newrelic.com/oss-category/#community-project)
 
-# NR1? New Relic Programmability? New Relic Apps? (What do we want to name this extension?)
+# New Relic VS Code extension
 
-Build and deploy nerdpacks directly from Visual Studio Code
+Build and deploy New Relic apps directly from Visual Studio Code
 
 ![Visual Studio Code using NR1 extension](assets/nr1-vscode-ext.gif)
 
-Table of Contents?
+## Table of contents
 
-## Requirements (or Important?)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Prerequisites](#Prerequisites)
 
-Need to install NR1 CLI
-Profile (API Key) is required to create a Nerdpack
-Note: Nerdpack will be created under the account associated with the current default profile
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Getting started](#Getting-started)
 
-## Getting Started
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Features](#Features)
 
-1. Install the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com) (or through your VSCode app).
-2. Access the VSCode command palette _(Ctrl+Shift+P in Windows/Linux or Cmd+Shift+P in macOS)_.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Cli commands](#Cli-commands)
+
+## Prerequisites
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a [free account](https://newrelic.com/signup)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get your [API key](https://one.newrelic.com/launcher/developer-center.launcher)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install the `nr1` CLI [here](https://one.newrelic.com/launcher/developer-center.launcher)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: Nerdpack will be created under the account associated with the current default profile
+
+## Getting started
+
+1. Install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com).
+2. Open the VSCode command palette (`Ctrl+Shift+P` in Windows/Linux or `Cmd+Shift+P` in macOS).
 3. Enter "Nerdpack" or "New Relic" to get a list of the available commands.
-4. Select a command to execute.
+4. Select `New Relic Profile: select default` or `Nerdpack: create a nerdpack` to get started!
 
 ## Features
 
-These are the features currently supported by this extension.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;These are the features currently supported by this extension.
 
-### CLI Commands
+### CLI commands
 
-| Name                                | Description                                                                                                                                                                               |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `New Relic Profile: select default` | Chooses which profile should be default. [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-profiles)                                                                        |
-| `Nerdpack: generate uuid`           | Assigns a new UUID to your Nerdpack. [ℹ️](https://developer.newrelic.com/explore-docs/nr1-nerdpack#nr1-nerdpackuuid)                                                                      |
-| `Nerdpack: create a nerdpack`       | Creates a new component from a Nerdpack template. [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                                                 |
-| `Nerdpack: create a nerdlet`        | Creates a new component from a Nerdlet template. [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                                                  |
-| `Nerdpack: create a launcher`       | Creates a new component from a Launcher template. [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                                                 |
-| `Nerdpack: run local development`   | Launches a server with your Nerdpack locally on the New Relic One platform, where it can be tested live. [ℹ️](https://developer.newrelic.com/explore-docs/nr1-nerdpack#nr1-nerdpackserve) |
+| Name                                | Description                                                                                                                                                |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `New Relic Profile: select default` | Choos your default profile [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-profiles)                                                       |
+| `Nerdpack: generate uuid`           | Assign a new UUID to your Nerdpack [ℹ️](https://developer.newrelic.com/explore-docs/nr1-nerdpack#nr1-nerdpackuuid)                                         |
+| `Nerdpack: create a nerdpack`       | Create a new component from a Nerdpack template [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                    |
+| `Nerdpack: create a nerdlet`        | Creates a new component from a Nerdlet template [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                    |
+| `Nerdpack: create a launcher`       | Create a new component from a Launcher template [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                    |
+| `Nerdpack: run local development`   | Launch a local server to test your Nerdpack on the New Relic One platform [ℹ️](https://developer.newrelic.com/explore-docs/nr1-nerdpack#nr1-nerdpackserve) |
 
 ### Snippets
 
+_coming soon_
+
 ## Known Issues
 
-No current known issues. Report any issues you find here: [https://github.com/newrelic/nr1-vscode-extension/issues](https://github.com/newrelic/nr1-vscode-extension/issues)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Report issues on our [GitHub repository](https://github.com/newrelic/nr1-vscode-extension/issues).
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We also encourage pull requests if you want to help make the extension even better.
