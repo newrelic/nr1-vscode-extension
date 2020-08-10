@@ -16,6 +16,14 @@ Build and deploy New Relic apps directly from VS Code
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Cli commands](#Cli-commands)
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Snippets](#Snippets)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Contributing](#Contributing)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[How to develop locally and contribute changes](#How-to-develop-locally-and-contribute-changes)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[License](#License)
+
 ## Prerequisites
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a [free account](https://newrelic.com/signup)
@@ -50,7 +58,29 @@ Build and deploy New Relic apps directly from VS Code
 
 ### Snippets
 
-_coming soon_
+| Trigger                         | Content                                                 |
+| ------------------------------- | ------------------------------------------------------- |
+| `nerdgraph->`                   | nr1 NerdGraphQuery component                            |
+| `button->`                      | nr1 Button component                                    |
+| `reporting events by account->` | `gql` query for reporting events by account             |
+| `pageview tables->`             | nr1 TableChart component with PageView count NRQL query |
+
+## Contributing
+
+This project adheres to the Twilio Labs [Code of Conduct](https://github.com/twilio-labs/.github/blob/master/CODE_OF_CONDUCT.md). Please read before contributing.
+
+### How to develop locally and contribute changes
+
+1. Fork this repository.
+2. Open project in VSCode.
+3. Hit `F5` to compile and launch the extension in debug mode. This will open a new VSCode window in which you can open the Command Palette and try out the commands.
+4. Make your changes in a new branch.
+5. Commit and push your changes.
+6. Open a Pull Request with a description of the changes. Feel free to include anything that could make our review easier _(screenshots, demo gifs, etc.)_
+
+## License
+
+This project is distributed under the [Apache 2 license](LICENSE).
 
 ## Known Issues
 
