@@ -4,7 +4,7 @@
 
 Build and deploy New Relic apps directly from VS Code
 
-![VS Code using NR1 extension](assets/nr1-vscode-ext.gif)
+![VS Code using NR1 extension](assets/nr1-vscode-ext-demo.gif)
 
 ## Table of contents
 
