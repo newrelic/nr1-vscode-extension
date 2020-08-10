@@ -38,7 +38,7 @@ Build and deploy New Relic apps directly from VS Code
 
 1. Install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com).
 2. Open the VS Code command palette (`Ctrl+Shift+P` in Windows/Linux or `Cmd+Shift+P` in macOS).
-3. Enter "Nerdpack" or "New Relic" to get a list of the available commands.
+3. Enter "New Relic" to get a list of the available commands.
 4. Select `New Relic Profile: select default` or `Nerdpack: create a nerdpack` to get started!
 
 ## Features
@@ -47,14 +47,26 @@ Build and deploy New Relic apps directly from VS Code
 
 ### CLI commands
 
-| Name                                | Description                                                                                                                                                |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `New Relic Profile: select default` | Choos your default profile [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-profiles)                                                       |
-| `Nerdpack: generate uuid`           | Assign a new UUID to your Nerdpack [ℹ️](https://developer.newrelic.com/explore-docs/nr1-nerdpack#nr1-nerdpackuuid)                                         |
-| `Nerdpack: create a nerdpack`       | Create a new component from a Nerdpack template [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                    |
-| `Nerdpack: create a nerdlet`        | Creates a new component from a Nerdlet template [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                    |
-| `Nerdpack: create a launcher`       | Create a new component from a Launcher template [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                    |
-| `Nerdpack: run local development`   | Launch a local server to test your Nerdpack on the New Relic One platform [ℹ️](https://developer.newrelic.com/explore-docs/nr1-nerdpack#nr1-nerdpackserve) |
+| Name                                                        | Description                                                                                                                                                                                             |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `New Relic (profile): select default`                       | Choose your default profile [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-profiles)                                                                                                   |
+| `New Relic (profile): add a new or existing profile`        | Add a new or existing New Relic profile                                                                                                                                                                 |
+| `New Relic (nerdpack): generate uuid`                       | Assign a new UUID to your Nerdpack [ℹ️](https://developer.newrelic.com/explore-docs/nr1-nerdpack#nr1-nerdpackuuid)                                                                                      |
+| `New Relic (nerdpack): create a nerdpack`                   | Create a new component from a Nerdpack template [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                                                                 |
+| `New Relic (nerdpack): create a nerdlet`                    | Creates a new component from a Nerdlet template [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                                                                 |
+| `New Relic (nerdpack): create a launcher`                   | Create a new component from a Launcher template [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                                                                 |
+| `New Relic (nerdpack): run local development`               | Launch a local server to test your Nerdpack on the New Relic One platform [ℹ️](https://developer.newrelic.com/explore-docs/nr1-nerdpack#nr1-nerdpackserve)                                              |
+| `New Relic (nerdpack): publish`                             | Publishes your Nerdpack to New Relic [ℹ️](https://developer.newrelic.com/explore-docs/nr1-nerdpack#nr1-nerdpackpublish)                                                                                 |
+| `New Relic (nerdpack): deploy`                              | Deploys a Nerdpack version to a specific channel (DEV, BETA, or STABLE). [ℹ️](https://developer.newrelic.com/explore-docs/nr1-nerdpack#nr1-nerdpackdeploy)                                              |
+| `New Relic (nerdpack): undeploy`                            | Undeploys a Nerdpack version from a specific channel (for example, DEV, BETA, or STABLE) [ℹ️](https://developer.newrelic.com/explore-docs/nr1-nerdpack#nr1-nerdpackundeploy)                            |
+| `New Relic (nerdpack): subscribe account to nerdpack`       | Subscribes your account to a specific Nerdpack and channel [ℹ️](https://developer.newrelic.com/explore-docs/nr1-subscription#nr1-subscriptionset)                                                       |
+| `New Relic (nerdpack): unsubscribe account from nerdpack`   | Unsubscribes your account from a specific Nerdpack [ℹ️](https://developer.newrelic.com/explore-docs/nr1-subscription#nr1-subscriptionunset)                                                             |
+| `New Relic (profile): show subscribed nerdpacks`            | Lists all the Nerdpacks your account is subscribed to [ℹ️](https://developer.newrelic.com/explore-docs/nr1-subscription#nr1-subscriptionlist)                                                           |
+| `New Relic (nerdpack): create catalog listing`              | Creates a new listing from the Catalog template [ℹ️](https://developer.newrelic.com/explore-docs/nr1-common#nr1-create)                                                                                 |
+| `New Relic (nerdpack): submit catalog listing`              | Gathers the information you add to the catalog directory for your application and saves it to the New Relic One Catalog [ℹ️](https://developer.newrelic.com/explore-docs/nr1-catalog#nr1-catalogsubmit) |
+| `New Relic (nerdpack): show published catalog listing info` | Shows the information about your application that's displayed in the New Relic One Catalog. [ℹ️](https://developer.newrelic.com/explore-docs/nr1-catalog#nr1-cataloginfo)                               |
+| `New Relic (docs): open developer documentation`            | Go to developer.newrelic.com                                                                                                                                                                            |
+| `New Relic (docs): search`                                  | Search through New Relic documentation                                                                                                                                                                  |
 
 ### Snippets
 
