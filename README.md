@@ -66,7 +66,7 @@ Build and deploy New Relic apps directly from VS Code
 | `New Relic (nerdpack): submit catalog listing`              | Gathers the information you add to the catalog directory for your application and saves it to the New Relic One Catalog [ℹ️](https://developer.newrelic.com/explore-docs/nr1-catalog#nr1-catalogsubmit) |
 | `New Relic (nerdpack): show published catalog listing info` | Shows the information about your application that's displayed in the New Relic One Catalog. [ℹ️](https://developer.newrelic.com/explore-docs/nr1-catalog#nr1-cataloginfo)                               |
 | `New Relic (docs): open developer documentation`            | Go to developer.newrelic.com                                                                                                                                                                            |
-| `New Relic (docs): search`                                  | Search through New Relic documentation                                                                                                                                                                  |
+| `New Relic (docs): search developer documentation`          | Search through New Relic developer documentation                                                                                                                                                        |
 
 ### Snippets
 
