@@ -10,6 +10,7 @@ export { default as listSubscriptions } from "./list-subscriptions";
 export { default as openDevDocs } from "./open-dev-docs";
 export { default as publishNerdpack } from "./publish-nerdpack";
 export { default as runNerdpack } from "./run-nerdpack";
+export { default as searchDevDocs } from "./search-dev-docs";
 export { default as selectDefaultProfile } from "./select-default-profile";
 export { default as showCatalogInfo } from "./show-catalog-info";
 export { default as subscribeNerdpack } from "./subscribe-nerdpack";

@@ -4,8 +4,9 @@ import * as vscode from "vscode";
 
 import { DEVELOPER_WEBSITE_URL } from "../constants/urls";
 
-const openDevDocs = () => {
-  const uri = vscode.Uri.parse(DEVELOPER_WEBSITE_URL, true);
+const openDevDocs = (queryParam?: string) => {
+  const url = `${DEVELOPER_WEBSITE_URL}${queryParam ?? ''}`;
+  const uri = vscode.Uri.parse(url, true);
   vscode.env.openExternal(uri);
 };
 

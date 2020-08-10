@@ -2,6 +2,8 @@ import { REGIONS } from "./regions";
 
 export const DEVELOPER_WEBSITE_URL = "https://developer.newrelic.com";
 
+export const DEVELOPER_WEBSITE_SEARCH_PARAM = "/?q=";
+
 export const NR_ONE_US_URL = "https://one.newrelic.com";
 
 export const NR_ONE_EU_URL = "https://one.eu.newrelic.com";
