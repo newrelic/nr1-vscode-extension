@@ -1,21 +1,26 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-
-import * as cliCommands from "./nr1-cli-commands";
-import pickChannel from "./utils/pick-channel";
-import pickProfile from "./utils/pick-profile";
-import pickRegion from "./utils/pick-region";
-import runCommand from "./utils/run-command";
-import {
-  getNameInput,
-  getFilePathInput,
-} from "./utils/get-nerdpack-name-input";
-import getUuid from "./utils/get-uuid";
-import handleCreateCatalogResponse from "./response-handlers/create-catalog";
-import handleCreateNerdpackResponse from "./response-handlers/create-nerdpack";
 import { COMMANDS } from "./constants/commands";
-import { DEVELOPER_WEBSITE_URL, getDeveloperCenterUrl } from "./constants/urls";
+import {
+  addProfile,
+  catalogSubmit,
+  createCatalog,
+  createLauncher,
+  createNerdlet,
+  createNerdpack,
+  deployNerdpack,
+  generateUuid,
+  listSubscriptions,
+  openDevDocs,
+  publishNerdpack,
+  runNerdpack,
+  showCatalogInfo,
+  selectDefaultProfile,
+  subscribeNerdpack,
+  undeployNerdpack,
+  unsubscribeNerdpack,
+} from "./extension-commands/index";
 
 /**********
  * TODO
@@ -23,145 +28,42 @@ import { DEVELOPER_WEBSITE_URL, getDeveloperCenterUrl } from "./constants/urls";
  * On all other commands, present a picker based on folders in the workspace that have an nr1.json
  *******/
 
-const nr1RunNerdpack = () => {
-  var terminal = vscode.window.createTerminal("Nerdpack serve");
-  terminal.show();
-  terminal.sendText("nr1 nerdpack:serve");
-  const uri = vscode.Uri.parse(
-    "https://staging-one.newrelic.com?nerdpacks=local"
-  );
-  vscode.env.openExternal(uri);
-};
-
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
-    vscode.commands.registerCommand(COMMANDS.CREATE_CATALOG, () =>
-      runCommand(cliCommands.createCatalog(), handleCreateCatalogResponse)
+    vscode.commands.registerCommand(COMMANDS.CREATE_CATALOG, createCatalog),
+    vscode.commands.registerCommand(COMMANDS.CATALOG_INFO, showCatalogInfo),
+    vscode.commands.registerCommand(COMMANDS.CATALOG_SUBMIT, catalogSubmit),
+    vscode.commands.registerCommand(COMMANDS.RUN_NERDPACK, runNerdpack),
+    vscode.commands.registerCommand(COMMANDS.CREATE_NERDPACK, createNerdpack),
+    vscode.commands.registerCommand(COMMANDS.CREATE_NERDLET, createNerdlet),
+    vscode.commands.registerCommand(COMMANDS.CREATE_LAUNCHER, createLauncher),
+    vscode.commands.registerCommand(COMMANDS.PUBLISH_NERDPACK, publishNerdpack),
+    vscode.commands.registerCommand(COMMANDS.DEPLOY_NERDPACK, deployNerdpack),
+    vscode.commands.registerCommand(
+      COMMANDS.UNDEPLOY_NERDPACK,
+      undeployNerdpack
     ),
-
-    vscode.commands.registerCommand(COMMANDS.CATALOG_INFO, () =>
-      runCommand(cliCommands.catalogInfo())
+    vscode.commands.registerCommand(
+      COMMANDS.SUBSCRIBE_NERDPACK,
+      subscribeNerdpack
     ),
-
-    vscode.commands.registerCommand(COMMANDS.CATALOG_SUBMIT, () =>
-      runCommand(cliCommands.catalogSubmit())
+    vscode.commands.registerCommand(
+      COMMANDS.UNSUBSCRIBE_NERDPACK,
+      unsubscribeNerdpack
     ),
-
-    vscode.commands.registerCommand(COMMANDS.RUN_NERDPACK, nr1RunNerdpack),
-
-    vscode.commands.registerCommand(COMMANDS.CREATE_NERDPACK, async () => {
-      const name = await getNameInput();
-      const filePath = await getFilePathInput();
-      if (!filePath) {
-        throw new Error("Have to select a file, please");
-      }
-      if (!name) {
-        throw new Error("Have to give your nerdpack a name, please");
-      }
-
-      runCommand(
-        `cd ${filePath} && ${cliCommands.createNerdpack(name)}`,
-        handleCreateNerdpackResponse(name, filePath),
-        filePath
-      );
-    }),
-
-    vscode.commands.registerCommand(COMMANDS.CREATE_NERDLET, async () => {
-      const nerdletName = await getNameInput();
-
-      if (!nerdletName) {
-        throw new Error("Have to give your nerdlet a name, please");
-      }
-
-      runCommand(cliCommands.createNerdlet(nerdletName));
-    }),
-
-    vscode.commands.registerCommand(COMMANDS.CREATE_LAUNCHER, async () => {
-      const launcherName = await getNameInput();
-
-      if (!launcherName) {
-        throw new Error("Have to give your launcher a name, please");
-      }
-
-      runCommand(cliCommands.createLauncher(launcherName));
-    }),
-
-    vscode.commands.registerCommand(COMMANDS.PUBLISH_NERDPACK, async () => {
-      const channel = await pickChannel();
-      runCommand(cliCommands.publishNerdpack(channel));
-    }),
-
-    vscode.commands.registerCommand(COMMANDS.DEPLOY_NERDPACK, async () => {
-      const channel = await pickChannel();
-      runCommand(cliCommands.deployNerdpack(channel));
-    }),
-
-    vscode.commands.registerCommand(COMMANDS.UNDEPLOY_NERDPACK, async () => {
-      const channel = await pickChannel();
-      runCommand(cliCommands.undeployNerdpack(channel));
-    }),
-
-    vscode.commands.registerCommand(COMMANDS.SUBSCRIBE_NERDPACK, async () => {
-      const channel = await pickChannel();
-      runCommand(cliCommands.subscribeNerdpack(channel));
-    }),
-
-    vscode.commands.registerCommand(COMMANDS.UNSUBSCRIBE_NERDPACK, async () => {
-      runCommand(cliCommands.unsubscribeNerdpack());
-    }),
-
-    vscode.commands.registerCommand(COMMANDS.ADD_PROFILE, async () => {
-      const region = await pickRegion();
-
-      if (region) {
-        const uri = vscode.Uri.parse(getDeveloperCenterUrl(region), true);
-        vscode.env.openExternal(uri);
-      }
-    }),
-
-    vscode.commands.registerCommand(COMMANDS.SELECT_PROFILE, async () => {
-      const profileName = await pickProfile();
-
-      if (profileName) {
-        function handleSetProfileResponse() {
-          vscode.window.showInformationMessage(
-            `Default profile updated to ${profileName}`
-          );
-        }
-
-        runCommand(
-          cliCommands.setProfile(profileName),
-          handleSetProfileResponse
-        );
-      }
-    }),
-
-    vscode.commands.registerCommand(COMMANDS.GENERATE_UUID, () => {
-      getUuid(async (uuid) => {
-        if (uuid) {
-          const answer = await vscode.window.showQuickPick(["Yes", "No"], {
-            placeHolder: `Replace existing UUID? (${uuid})`,
-          });
-
-          if (answer === "No") {
-            return;
-          }
-        }
-
-        runCommand(cliCommands.generateUuid());
-      });
-    }),
-
-    vscode.commands.registerCommand(COMMANDS.OPEN_DEVELOPER_DOCS, () => {
-      const uri = vscode.Uri.parse(DEVELOPER_WEBSITE_URL, true);
-      vscode.env.openExternal(uri);
-    }),
-
-    vscode.commands.registerCommand(COMMANDS.LIST_SUBSCRIPTIONS, () => {
-      runCommand(cliCommands.listSubscriptions());
-    })
+    vscode.commands.registerCommand(COMMANDS.ADD_PROFILE, addProfile),
+    vscode.commands.registerCommand(
+      COMMANDS.SELECT_PROFILE,
+      selectDefaultProfile
+    ),
+    vscode.commands.registerCommand(COMMANDS.GENERATE_UUID, generateUuid),
+    vscode.commands.registerCommand(COMMANDS.OPEN_DEVELOPER_DOCS, openDevDocs),
+    vscode.commands.registerCommand(
+      COMMANDS.LIST_SUBSCRIPTIONS,
+      listSubscriptions
+    )
   );
 }
 
