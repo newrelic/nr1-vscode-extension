@@ -2,6 +2,12 @@
   "name": "nr1",
   "displayName": "NR1",
   "description": "Build and deploy nerdpacks directly from Visual Studio Code",
+  "icon": "assets/nr-logo.png",
+  "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  "license": "SEE LICENSE IN LICENSE.txt",
   "version": "0.0.1",
   "publisher": "new-relic",
   "engines": {
