@@ -27,7 +27,8 @@
     "onCommand:nr1.selectProfile",
     "onCommand:nr1.generateUuid",
     "onCommand:nr1.openDeveloperDocs",
-    "onCommand:nr1.listSubscriptions"
+    "onCommand:nr1.listSubscriptions",
+    "onCommand:nr1.searchDeveloperDocs"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -101,6 +102,10 @@
       {
         "command": "nr1.openDeveloperDocs",
         "title": "New Relic (docs): open developer documentation"
+      },
+      {
+        "command": "nr1.searchDeveloperDocs",
+        "title": "New Relic (docs): search developer documentation"
       },
       {
         "command": "nr1.listSubscriptions",

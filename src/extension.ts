@@ -15,8 +15,9 @@ import {
   openDevDocs,
   publishNerdpack,
   runNerdpack,
-  showCatalogInfo,
+  searchDevDocs,
   selectDefaultProfile,
+  showCatalogInfo,
   subscribeNerdpack,
   undeployNerdpack,
   unsubscribeNerdpack,
@@ -63,6 +64,10 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand(
       COMMANDS.LIST_SUBSCRIPTIONS,
       listSubscriptions
+    ),
+    vscode.commands.registerCommand(
+      COMMANDS.SEARCH_DEVELOPER_DOCS,
+      searchDevDocs
     )
   );
 }
