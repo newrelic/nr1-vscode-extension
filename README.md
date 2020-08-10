@@ -67,7 +67,7 @@ Build and deploy New Relic apps directly from VS Code
 
 ## Contributing
 
-This project adheres to the Twilio Labs [Code of Conduct](https://github.com/twilio-labs/.github/blob/master/CODE_OF_CONDUCT.md). Please read before contributing.
+This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). Please read before contributing.
 
 ### How to develop locally and contribute changes
 
