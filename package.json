@@ -40,71 +40,71 @@
     "commands": [
       {
         "command": "nr1.createNerdpack",
-        "title": "Nerdpack: create a nerdpack"
+        "title": "New Relic (nerdpack): create a nerdpack"
       },
       {
         "command": "nr1.createNerdlet",
-        "title": "Nerdpack: create a nerdlet"
+        "title": "New Relic (nerdpack): create a nerdlet"
       },
       {
         "command": "nr1.createLauncher",
-        "title": "Nerdpack: create a launcher"
+        "title": "New Relic (nerdpack): create a launcher"
       },
       {
         "command": "nr1.subscribeNerdpack",
-        "title": "Nerdpack: subscribe account to nerdpack"
+        "title": "New Relic (nerdpack): subscribe account to nerdpack"
       },
       {
         "command": "nr1.unsubscribeNerdpack",
-        "title": "Nerdpack: unsubscribe account from nerdpack"
+        "title": "New Relic (nerdpack): unsubscribe account from nerdpack"
       },
       {
         "command": "nr1.createCatalog",
-        "title": "Nerdpack: create catalog listing"
+        "title": "New Relic (nerdpack): create catalog listing"
       },
       {
         "command": "nr1.catalogSubmit",
-        "title": "Nerdpack: submit catalog listing"
+        "title": "New Relic (nerdpack): submit catalog listing"
       },
       {
         "command": "nr1.catalogInfo",
-        "title": "Nerdpack: show published catalog listing info"
+        "title": "New Relic (nerdpack): show published catalog listing info"
       },
       {
         "command": "nr1.runNerdpack",
-        "title": "Nerdpack: run local development"
+        "title": "New Relic (nerdpack): run local development"
       },
       {
         "command": "nr1.publishNerdpack",
-        "title": "Nerdpack: publish"
+        "title": "New Relic (nerdpack): publish"
       },
       {
         "command": "nr1.deployNerdpack",
-        "title": "Nerdpack: deploy"
+        "title": "New Relic (nerdpack): deploy"
       },
       {
         "command": "nr1.undeployNerdpack",
-        "title": "Nerdpack: undeploy"
+        "title": "New Relic (nerdpack): undeploy"
       },
       {
         "command": "nr1.addProfile",
-        "title": "New Relic Profile: add a new or existing profile"
+        "title": "New Relic (profile): add a new or existing profile"
       },
       {
         "command": "nr1.selectProfile",
-        "title": "New Relic Profile: select default"
+        "title": "New Relic (profile): select default"
       },
       {
         "command": "nr1.generateUuid",
-        "title": "Nerdpack: generate uuid"
+        "title": "New Relic (nerdpack): generate uuid"
       },
       {
         "command": "nr1.openDeveloperDocs",
-        "title": "New Relic: open developer documentation"
+        "title": "New Relic (docs): open developer documentation"
       },
       {
         "command": "nr1.listSubscriptions",
-        "title": "New Relic Profile: show subscribed nerdpacks"
+        "title": "New Relic (profile): show subscribed nerdpacks"
       }
     ]
   },
