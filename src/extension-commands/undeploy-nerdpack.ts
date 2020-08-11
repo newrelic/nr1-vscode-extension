@@ -4,7 +4,7 @@ import runCommand from "../utils/run-command";
 
 const undeployNerdpack = async () => {
   const channel = await pickChannel();
-  runCommand(cliCommands.undeployNerdpack(channel));
+  channel && runCommand(cliCommands.undeployNerdpack(channel));
 };
 
 export default undeployNerdpack;

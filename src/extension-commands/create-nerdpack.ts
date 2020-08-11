@@ -1,3 +1,5 @@
+import * as vscode from "vscode";
+import { NAME_REQUIRED, FILE_REQUIRED } from "./../constants/errors";
 import {
   getNameInput,
   getFilePathInput,
@@ -10,10 +12,11 @@ const createNerdpack = async () => {
   const name = await getNameInput();
   const filePath = await getFilePathInput();
   if (!filePath) {
-    throw new Error("Have to select a file, please");
+    return vscode.window.showErrorMessage(FILE_REQUIRED);
   }
+
   if (!name) {
-    throw new Error("Have to give your nerdpack a name, please");
+    return vscode.window.showErrorMessage(NAME_REQUIRED("nerdpack"));
   }
 
   runCommand(
