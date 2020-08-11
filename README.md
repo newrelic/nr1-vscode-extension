@@ -39,7 +39,7 @@ Install the `nr1` CLI [here](https://one.newrelic.com/launcher/developer-center.
 1. Install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com).
 2. Open the VS Code command palette (`Ctrl+Shift+P` in Windows/Linux or `Cmd+Shift+P` in macOS).
 3. Enter "New Relic" to get a list of the available commands.
-4. Select `New Relic Profile: select default` or `Nerdpack: create a nerdpack` to get started!
+4. Select `New Relic (profile): select default` or `New Relic (nerdpack): create a nerdpack` to get started!
 
 ## Features
 
