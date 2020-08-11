@@ -4,7 +4,7 @@ import runCommand from "../utils/run-command";
 
 const subscribeNerdpack = async () => {
   const channel = await pickChannel();
-  runCommand(cliCommands.subscribeNerdpack(channel));
+  channel && runCommand(cliCommands.subscribeNerdpack(channel));
 };
 
 export default subscribeNerdpack;

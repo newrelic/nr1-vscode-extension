@@ -4,7 +4,7 @@ import pickChannel from "../utils/pick-channel";
 
 const deployNerdpack = async () => {
   const channel = await pickChannel();
-  runCommand(cliCommands.deployNerdpack(channel));
+  channel && runCommand(cliCommands.deployNerdpack(channel));
 };
 
 export default deployNerdpack;
