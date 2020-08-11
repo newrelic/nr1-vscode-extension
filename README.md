@@ -8,31 +8,31 @@ Build and deploy New Relic apps directly from VS Code
 
 ## Table of contents
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Prerequisites](#Prerequisites)
+[Prerequisites](#Prerequisites)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Getting started](#Getting-started)
+[Getting started](#Getting-started)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Features](#Features)
+[Features](#Features)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Cli commands](#Cli-commands)
+[Cli commands](#Cli-commands)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Snippets](#Snippets)
+[Snippets](#Snippets)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Contributing](#Contributing)
+[Contributing](#Contributing)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[How to develop locally and contribute changes](#How-to-develop-locally-and-contribute-changes)
+[How to develop locally and contribute changes](#How-to-develop-locally-and-contribute-changes)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[License](#License)
+[License](#License)
 
 ## Prerequisites
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a [free account](https://newrelic.com/signup)
+[free account](https://newrelic.com/signup)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get your [API key](https://one.newrelic.com/launcher/developer-center.launcher)
+[API key](https://one.newrelic.com/launcher/developer-center.launcher)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Install the `nr1` CLI [here](https://one.newrelic.com/launcher/developer-center.launcher)
+[here](https://one.newrelic.com/launcher/developer-center.launcher)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: Nerdpack will be created under the account associated with the current default profile
+Note: Nerdpack will be created under the account associated with the current default profile
 
 ## Getting started
 
@@ -43,7 +43,7 @@ Build and deploy New Relic apps directly from VS Code
 
 ## Features
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;These are the features currently supported by this extension.
+These are the features currently supported by this extension.
 
 ### CLI commands
 
@@ -96,6 +96,6 @@ This project is distributed under the [Apache 2 license](LICENSE).
 
 ## Known Issues
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Report issues on our [GitHub repository](https://github.com/newrelic/nr1-vscode-extension/issues).
+Report issues on our [GitHub repository](https://github.com/newrelic/nr1-vscode-extension/issues).
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We also encourage pull requests if you want to help make the extension even better.
+We also encourage pull requests if you want to help make the extension even better.
