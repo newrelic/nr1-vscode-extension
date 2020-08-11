@@ -26,13 +26,13 @@ Build and deploy New Relic apps directly from VS Code
 
 ## Prerequisites
 
-[free account](https://newrelic.com/signup)
+Create a [free account](https://newrelic.com/signup)
 
-[API key](https://one.newrelic.com/launcher/developer-center.launcher)
+Get your [API key](https://one.newrelic.com/launcher/developer-center.launcher)
 
-[here](https://one.newrelic.com/launcher/developer-center.launcher)
+Install the `nr1` CLI [here](https://one.newrelic.com/launcher/developer-center.launcher)
 
-Note: Nerdpack will be created under the account associated with the current default profile
+**Note:** Nerdpack will be created under the account associated with the current default profile
 
 ## Getting started
 
