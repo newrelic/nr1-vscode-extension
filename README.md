@@ -14,25 +14,27 @@ Build and deploy New Relic apps directly from VS Code
 
 [Features](#Features)
 
-[Cli commands](#Cli-commands)
+&nbsp;&nbsp;[CLI commands](#Cli-commands)
 
-[Snippets](#Snippets)
+[&nbsp;&nbsp;Snippets](#Snippets)
 
 [Contributing](#Contributing)
 
-[How to develop locally and contribute changes](#How-to-develop-locally-and-contribute-changes)
+&nbsp;&nbsp;[How to develop locally and contribute changes](#How-to-develop-locally-and-contribute-changes)
 
 [License](#License)
 
 ## Prerequisites
 
-Create a [free account](https://newrelic.com/signup)
+Before you start coding, be sure you've done the following:
 
-Get your [API key](https://one.newrelic.com/launcher/developer-center.launcher)
+1. Create a [free account](https://newrelic.com/signup)
 
-Install the `nr1` CLI [here](https://one.newrelic.com/launcher/developer-center.launcher)
+2. Get your [API key](https://one.newrelic.com/launcher/developer-center.launcher)
 
-**Note:** Nerdpack will be created under the account associated with the current default profile
+3. Install the `nr1` CLI [here](https://one.newrelic.com/launcher/developer-center.launcher)
+
+**Note:** A nerdpack will be created under the account associated with the current default profile
 
 ## Getting started
 
@@ -74,7 +76,7 @@ These are the features currently supported by this extension.
 | ------------------------------- | ------------------------------------------------------- |
 | `nerdgraph->`                   | nr1 NerdGraphQuery component                            |
 | `button->`                      | nr1 Button component                                    |
-| `reporting events by account->` | `gql` query for reporting events by account             |
+| `reporting events by account->` | `gql` Query for reporting events by account             |
 | `pageview tables->`             | nr1 TableChart component with PageView count NRQL query |
 
 ## Contributing
@@ -84,11 +86,11 @@ This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). Please read bef
 ### How to develop locally and contribute changes
 
 1. Fork this repository.
-2. Open project in VSCode.
-3. Hit `F5` to compile and launch the extension in debug mode. This will open a new VSCode window in which you can open the Command Palette and try out the commands.
+2. Open project in VS Code.
+3. Hit `F5` to compile and launch the extension in debug mode. This will open a new VS Code window in which you can open the Command Palette and try out the commands.
 4. Make your changes in a new branch.
 5. Commit and push your changes.
-6. Open a Pull Request with a description of the changes. Feel free to include anything that could make our review easier _(screenshots, demo gifs, etc.)_
+6. Open a pull request with a description of the changes. Feel free to include anything that could make our review easier _(screenshots, demo gifs, etc.)._
 
 ## License
 
