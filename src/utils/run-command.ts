@@ -1,5 +1,4 @@
 const cp = require("child_process");
-const path = require("path");
 
 import handleResponse from "../response-handlers/default";
 import getPath from "./get-path";

@@ -1,7 +1,5 @@
 import * as vscode from "vscode";
 
-const path = require("path");
-
 const handleCreateNerdpackResponse = (name: string, filePath: string) => {
   return async (err: Error, stdout: string, stderr: string) => {
     if (err) {

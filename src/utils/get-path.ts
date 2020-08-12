@@ -1,5 +1,4 @@
 import * as vscode from "vscode";
-const path = require("path");
 
 const getPath = () => {
   const rootPath = vscode.workspace.rootPath;
