@@ -3,12 +3,13 @@ import * as vscode from "vscode";
 const fs = require("fs");
 const os = require("os");
 
-const pickProfile = async (): Promise<string | undefined> => {
-  const credentialPath = `${os.homedir()}/.newrelic/credentials.json`;
-  const defaultPath = `${os.homedir()}/.newrelic/default-profile.json`;
+interface Profile {
+  apiKey: string;
+  region: string;
+}
 
-  const profiles = JSON.parse(fs.readFileSync(credentialPath));
-  const currentDefault = JSON.parse(fs.readFileSync(defaultPath));
+const pickProfile = async (): Promise<string | undefined> => {
+  const { profiles, currentDefault } = getProfiles();
   const profileNames = Object.keys(profiles).map((profileName) => {
     if (profileName === currentDefault) {
       return `${profileName} (current default)`;
@@ -17,6 +18,21 @@ const pickProfile = async (): Promise<string | undefined> => {
   });
 
   return await vscode.window.showQuickPick(profileNames);
+};
+
+export const getProfiles = () => {
+  const credentialPath = `${os.homedir()}/.newrelic/credentials.json`;
+  const defaultPath = `${os.homedir()}/.newrelic/default-profile.json`;
+
+  const profiles = JSON.parse(fs.readFileSync(credentialPath));
+  const currentDefault = JSON.parse(fs.readFileSync(defaultPath));
+
+  return { profiles, currentDefault };
+};
+
+export const getDefaultProfile = (): Profile => {
+  const { profiles, currentDefault } = getProfiles();
+  return profiles?.[currentDefault];
 };
 
 export default pickProfile;
