@@ -1,3 +1,4 @@
+import { REGION_REQUIRED } from "./../constants/errors";
 import * as vscode from "vscode";
 import { REGIONS } from "../constants/regions";
 
@@ -7,7 +8,7 @@ const pickRegion = async (): Promise<string | undefined> => {
   });
 
   if (!region) {
-    vscode.window.showErrorMessage("A region is required");
+    vscode.window.showErrorMessage(REGION_REQUIRED);
   }
 
   return region;

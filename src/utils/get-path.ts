@@ -1,3 +1,4 @@
+import { WORKSPACE_REQUIRED } from "./../constants/errors";
 import * as vscode from "vscode";
 
 const getPath = () => {
@@ -5,8 +6,7 @@ const getPath = () => {
   if (rootPath) {
     return rootPath;
   }
-  vscode.window.showErrorMessage("This command must be run from a workspace");
-  throw new Error("Could not find path");
+  return vscode.window.showErrorMessage(WORKSPACE_REQUIRED);
 };
 
 export default getPath;
