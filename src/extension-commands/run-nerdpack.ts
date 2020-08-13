@@ -1,4 +1,3 @@
-import { PROFILE_REQUIRED } from "./../constants/errors";
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
@@ -11,10 +10,6 @@ import { getDefaultProfile } from "./../utils/pick-profile";
 
 const nr1RunNerdpack = () => {
   const defaultProfile = getDefaultProfile();
-
-  if (!defaultProfile) {
-    vscode.window.showErrorMessage(PROFILE_REQUIRED);
-  }
 
   const terminal = vscode.window.createTerminal("Nerdpack serve");
   terminal.show();

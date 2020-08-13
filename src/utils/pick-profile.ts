@@ -1,3 +1,4 @@
+import { NO_PROFILE_FOUND } from "./../constants/errors";
 import * as vscode from "vscode";
 
 const fs = require("fs");
@@ -24,8 +25,15 @@ export const getProfiles = () => {
   const credentialPath = `${os.homedir()}/.newrelic/credentials.json`;
   const defaultPath = `${os.homedir()}/.newrelic/default-profile.json`;
 
-  const profiles = JSON.parse(fs.readFileSync(credentialPath));
-  const currentDefault = JSON.parse(fs.readFileSync(defaultPath));
+  let profiles;
+  let currentDefault;
+
+  try {
+    profiles = JSON.parse(fs.readFileSync(credentialPath));
+    currentDefault = JSON.parse(fs.readFileSync(defaultPath));
+  } catch (err) {
+    vscode.window.showErrorMessage(NO_PROFILE_FOUND);
+  }
 
   return { profiles, currentDefault };
 };
