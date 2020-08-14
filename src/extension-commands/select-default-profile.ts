@@ -1,10 +1,10 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-
-import * as cliCommands from "./nr1-cli-commands";
 import pickProfile from "../utils/pick-profile";
-import runCommand from "../utils/run-command";
+import * as cliCommands from "./nr1-cli-commands";
+
+const cp = require("child_process");
 
 const selectDefaultProfile = async () => {
   const profileName = await pickProfile();
@@ -15,8 +15,7 @@ const selectDefaultProfile = async () => {
         `Default profile updated to ${profileName}`
       );
     }
-
-    runCommand(cliCommands.setProfile(profileName), handleSetProfileResponse);
+    cp.exec(cliCommands.setProfile(profileName), {}, handleSetProfileResponse);
   }
 };
 
