@@ -4,7 +4,7 @@
 
 The Visual Studio Code Extension (VSCode) for New Relic helps developers build and deploy New Relic apps directly from VSCode. The extension allows you to use New Relic CLI commands to build custom apps, manage your apps, and gather the information you need to successfully add your app to the New Relic One Catalog. For reference materials, you can also open and search developer documentation directly in the CLI.
 
-![VS Code using NR1 extension](assets/nr1-vscode-ext-demo.gif)
+![VS Code using NR1 extension](https://github.com/newrelic/nr1-vscode-extension/raw/main/assets/nr1-vscode-ext-demo.gif)
 
 ## Table of contents
 
