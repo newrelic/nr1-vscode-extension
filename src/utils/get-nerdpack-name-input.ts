@@ -11,7 +11,8 @@ export const getFilePathInput = async () => {
       canSelectMany: false,
       openLabel: "Select folder",
     });
-    filePath = selected?.[0].path;
+    const uri = selected && vscode.Uri.file(selected?.[0].path);
+    filePath = uri?.fsPath;
   }
 
   return filePath;

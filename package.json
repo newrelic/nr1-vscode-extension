@@ -1,8 +1,15 @@
 {
   "name": "nr1",
-  "displayName": "nr1",
-  "description": "A test",
-  "version": "0.0.1",
+  "displayName": "NR1",
+  "description": "Build and deploy New Relic apps directly from VS Code",
+  "icon": "assets/nr-logo.png",
+  "galleryBanner": {
+    "color": "#0AB0BF",
+    "theme": "light"
+  },
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "version": "1.0.0",
+  "publisher": "new-relic",
   "engines": {
     "vscode": "^1.44.0"
   },
@@ -112,6 +119,10 @@
         "title": "New Relic (profile): show subscribed nerdpacks"
       }
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/newrelic/nr1-vscode-extension.git"
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

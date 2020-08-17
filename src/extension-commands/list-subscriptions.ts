@@ -1,8 +1,10 @@
 import * as cliCommands from "./nr1-cli-commands";
-import runCommand from "../utils/run-command";
+import handleResponse from "../response-handlers/default";
+
+const cp = require("child_process");
 
 const listSubscriptions = () => {
-  runCommand(cliCommands.listSubscriptions());
+  cp.exec(cliCommands.listSubscriptions(), {}, handleResponse);
 };
 
 export default listSubscriptions;

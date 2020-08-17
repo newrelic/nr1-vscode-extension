@@ -6,9 +6,9 @@ import getPath from "./get-path";
 const runCommand = (
   command: string,
   responseHandler: Function = handleResponse,
-  path: string | undefined = undefined
+  filePath: string | undefined = undefined
 ) => {
-  cp.exec(command, { cwd: path || getPath() }, responseHandler);
+  cp.exec(command, { cwd: filePath || getPath() }, responseHandler);
 };
 
 export default runCommand;
