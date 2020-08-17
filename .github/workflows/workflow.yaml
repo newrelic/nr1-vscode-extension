@@ -1,5 +1,9 @@
 name: nr1
 
+env:
+  BOT_NAME: nr-opensource-bot
+  BOT_EMAIL: opensource+bot@newrelic.com
+
 on:
   push:
     branches:
