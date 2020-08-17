@@ -1,0 +1,8 @@
+{
+  "lastUpdated": "Mon Aug 17 2020 16:25:40 GMT-0700 (Pacific Daylight Time)",
+  "projectName": "nr1-vscode-extension",
+  "projectUrl": "https://github.com/newrelic/nr1-vscode-extension",
+  "includeDev": true,
+  "dependencies": {},
+  "devDependencies": {}
+}
