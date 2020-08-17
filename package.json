@@ -2,6 +2,13 @@
   "name": "nr1",
   "displayName": "NR1",
   "description": "Build and deploy New Relic apps directly from VS Code",
+  "keywords": [
+    "New Relic",
+    "NRQL",
+    "Nerdpack",
+    "Observability",
+    "Programmability"
+  ],
   "icon": "assets/nr-logo.png",
   "galleryBanner": {
     "color": "#0AB0BF",
