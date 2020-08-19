@@ -38,7 +38,7 @@ Before you start coding, be sure you've done the following:
 
 ## Getting started
 
-1. Install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com).
+1. Install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=new-relic.nr1).
 2. Open the VS Code command palette (`Ctrl+Shift+P` in Windows/Linux or `Cmd+Shift+P` in macOS).
 3. Enter "New Relic" to get a list of the available commands.
 4. Select `New Relic (profile): select default` or `New Relic (nerdpack): create a nerdpack` to get started!
