@@ -1,5 +1,5 @@
 {
-  "name": "vscode-extension-new-relic",
+  "name": "nr1",
   "displayName": "VS Code Extension for New Relic",
   "description": "Build and deploy New Relic apps directly from VS Code",
   "keywords": [
