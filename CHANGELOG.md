@@ -1,3 +1,11 @@
+## [1.0.4](https://github.com/newrelic/nr1-vscode-extension/compare/v1.0.3...v1.0.4) (2020-08-21)
+
+
+### Bug Fixes
+
+* **Actions:** Fixes third party manifest & notices ([202af1a](https://github.com/newrelic/nr1-vscode-extension/commit/202af1af20ccaab55c512cad05945e445fe5d8ff))
+* **README:** Update Visual Studio Marketplace URL ([50a915a](https://github.com/newrelic/nr1-vscode-extension/commit/50a915a0de256f8a941ccc2fc4e62283b0c36dd4))
+
 ## [0.0.2](https://github.com/newrelic/nr1-vscode-extension/compare/v0.0.1...v0.0.2) (2020-08-17)
 
 
