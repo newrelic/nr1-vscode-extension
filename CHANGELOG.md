@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/newrelic/nr1-vscode-extension/compare/v1.0.4...v1.0.5) (2020-08-24)
+
+
+### Bug Fixes
+
+* updates to contributor guide ([45ac89d](https://github.com/newrelic/nr1-vscode-extension/commit/45ac89da5dde4f9c5e6ff4c061213b67735e8561))
+
 ## [1.0.4](https://github.com/newrelic/nr1-vscode-extension/compare/v1.0.3...v1.0.4) (2020-08-21)
 
 
