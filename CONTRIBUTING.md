@@ -29,6 +29,14 @@ Bugs or security vulnerabilities can be submitted as an [Issue](../../issues/new
 2. Increase the version numbers in any examples files and the README.md to the new version that this Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
 3. You may merge the Pull Request in once you have sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
 
+## Semantic versioning
+
+ Please use a prefix like `chore:` or `feat:` in your commit message. As we use semantic release to automatically keep track of the version based on the prefixes used and update minor or major accordingly.
+
+```shell
+git commit -m "chore: updated contributing guide"
+```
+
 ## Contributor License Agreement
 
 When you submit your Pull Request, you'll need to sign the CLA via the click-through using the `CLA-Assistant`. If you'd like to execute our corporate CLA, or if you have any questions, please send us an email at opensource@newrelic.com.
