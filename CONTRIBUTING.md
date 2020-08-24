@@ -29,9 +29,9 @@ Bugs or security vulnerabilities can be submitted as an [Issue](../../issues/new
 2. Increase the version numbers in any examples files and the README.md to the new version that this Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
 3. You may merge the Pull Request in once you have sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
 
-## Semantic versioning
+## Conventional Commits and Semantic versioning
 
-Please use a prefix like `fix:` or `feat:` in your commit message. As we use semantic release to automatically keep track of the version based on the prefixes used and update minor or major accordingly.
+We use conventional commits and semantic release to automatically keep track of versioning. In order to trigger a new publish of the extension, the version must be updated. This can be achieved through the below prefixes. More on conventional commits [here](https://www.conventionalcommits.org/)
 
 - `fix:` a commit of the type fix patches a bug in your codebase (this correlates with PATCH in semantic versioning).
 - `feat:` a commit of the type feat introduces a new feature to the codebase (this correlates with MINOR in semantic versioning).
