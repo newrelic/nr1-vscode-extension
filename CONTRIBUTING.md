@@ -31,10 +31,16 @@ Bugs or security vulnerabilities can be submitted as an [Issue](../../issues/new
 
 ## Semantic versioning
 
- Please use a prefix like `chore:` or `feat:` in your commit message. As we use semantic release to automatically keep track of the version based on the prefixes used and update minor or major accordingly.
+Please use a prefix like `fix:` or `feat:` in your commit message. As we use semantic release to automatically keep track of the version based on the prefixes used and update minor or major accordingly.
+
+- `fix:` a commit of the type fix patches a bug in your codebase (this correlates with PATCH in semantic versioning).
+- `feat:` a commit of the type feat introduces a new feature to the codebase (this correlates with MINOR in semantic versioning).
+- `BREAKING CHANGE:` a commit that has a footer `BREAKING CHANGE:`, or appends a `!` after the type/scope introduces a breaking change (correlating with MAJOR in semantic versioning). A BREAKING CHANGE can be part of commits of any type. types other than `fix:` and `feat:`
+
+### Example commit
 
 ```shell
-git commit -m "chore: updated contributing guide"
+git commit -m "fix: updated contributing guide"
 ```
 
 ## Contributor License Agreement
@@ -46,4 +52,4 @@ For more information about CLAs, please check out Alex Russell’s excellent pos
 
 ## Slack
 
-We host a public Slack with a dedicated channel for contributors and maintainers of open source projects hosted by New Relic.  If you are contributing to this project, you're welcome to request access to the #oss-contributors channel in the newrelicusers.slack.com workspace.  To request access, see https://newrelicusers-signup.herokuapp.com/.
+We host a public Slack with a dedicated channel for contributors and maintainers of open source projects hosted by New Relic. If you are contributing to this project, you're welcome to request access to the #oss-contributors channel in the newrelicusers.slack.com workspace. To request access, see https://newrelicusers-signup.herokuapp.com/.
