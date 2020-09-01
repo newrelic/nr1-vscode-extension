@@ -1,3 +1,11 @@
+## [1.0.6](https://github.com/newrelic/nr1-vscode-extension/compare/v1.0.5...v1.0.6) (2020-09-01)
+
+
+### Bug Fixes
+
+* changed ext displayName ([6009d24](https://github.com/newrelic/nr1-vscode-extension/commit/6009d240b3f5940e1a5dc9cd6252914680eb91c7))
+* updated contributor guide ([391031e](https://github.com/newrelic/nr1-vscode-extension/commit/391031eff06deb189145099c5c584409b924335e))
+
 ## [1.0.5](https://github.com/newrelic/nr1-vscode-extension/compare/v1.0.4...v1.0.5) (2020-08-24)
 
 
