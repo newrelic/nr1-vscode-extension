@@ -1,5 +1,9 @@
 [![Community Project header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Community_Project.png)](https://opensource.newrelic.com/oss-category/#community-project)
 
+[![Badge for version for Visual Studio Code extension](https://vsmarketplacebadge.apphb.com/version-short/new-relic.nr1.svg?color=blue&style=?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=new-relic.nr1)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/new-relic.nr1.svg?color=blue&style=flat-square)](https://marketplace.visualstudio.com/items?itemName=new-relic.nr1)
+[![Rating](https://vsmarketplacebadge.apphb.com/rating-short/new-relic.nr1.svg?color=blue&style=flat-square)](https://marketplace.visualstudio.com/items?itemName=new-relic.nr1)
+
 # New Relic VS Code extension
 
 The Visual Studio Code Extension (VSCode) for New Relic helps developers build and deploy New Relic apps directly from VSCode. The extension allows you to use New Relic CLI commands to build custom apps, manage your apps, and gather the information you need to successfully add your app to the New Relic One Catalog. For reference materials, you can also open and search developer documentation directly in the CLI.
