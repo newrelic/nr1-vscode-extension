@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/newrelic/nr1-vscode-extension/compare/v1.0.6...v1.0.7) (2020-09-25)
+
+
+### Bug Fixes
+
+* added badges ([07456da](https://github.com/newrelic/nr1-vscode-extension/commit/07456da1bbe9e53a5506b4fe551630046e593725))
+
 ## [1.0.6](https://github.com/newrelic/nr1-vscode-extension/compare/v1.0.5...v1.0.6) (2020-09-01)
 
 
