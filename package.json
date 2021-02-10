@@ -15,7 +15,7 @@
     "theme": "light"
   },
   "license": "SEE LICENSE IN LICENSE.txt",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "publisher": "new-relic",
   "engines": {
     "vscode": "^1.44.0"
