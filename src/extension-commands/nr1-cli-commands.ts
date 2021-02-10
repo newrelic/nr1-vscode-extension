@@ -10,13 +10,13 @@ export const createLauncher = (launcherName: string) =>
   `nr1 create -t launcher -n ${launcherName}`;
 
 export const publishNerdpack = (channel: string) =>
-  `nr1 nerdpack:publish -c ${channel}`;
+  `nr1 nerdpack:publish -t ${channel}`;
 
 export const deployNerdpack = (channel: string) =>
-  `nr1 nerdpack:deploy -c ${channel}`;
+  `nr1 nerdpack:deploy -t ${channel}`;
 
 export const undeployNerdpack = (channel: string) =>
-  `nr1 nerdpack:undeploy -c ${channel}`;
+  `nr1 nerdpack:undeploy -t ${channel}`;
 
 export const subscribeNerdpack = (channel: string) =>
   `nr1 nerdpack:subscribe -c ${channel}`;
