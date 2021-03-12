@@ -42,7 +42,8 @@
     "onCommand:nr1.generateUuid",
     "onCommand:nr1.openDeveloperDocs",
     "onCommand:nr1.listSubscriptions",
-    "onCommand:nr1.searchDeveloperDocs"
+    "onCommand:nr1.searchDeveloperDocs",
+    "onCommand:nr1.createVisualization"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -124,6 +125,10 @@
       {
         "command": "nr1.listSubscriptions",
         "title": "New Relic (profile): show subscribed nerdpacks"
+      },
+      {
+        "command": "nr1.createVisualization",
+        "title": "New Relic (nerdpack): create a visualization"
       }
     ]
   },

@@ -9,6 +9,9 @@ export const createNerdlet = (nerdletName: string) =>
 export const createLauncher = (launcherName: string) =>
   `nr1 create -t launcher -n ${launcherName}`;
 
+export const createVisualization = (visualizationName: string) =>
+  `nr1 create -t visualization -n ${visualizationName}`;
+
 export const publishNerdpack = (channel: string) =>
   `nr1 nerdpack:publish -t ${channel}`;
 

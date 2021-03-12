@@ -6,6 +6,7 @@ export const COMMANDS = {
   CREATE_NERDPACK: "nr1.createNerdpack",
   CREATE_NERDLET: "nr1.createNerdlet",
   CREATE_LAUNCHER: "nr1.createLauncher",
+  CREATE_VISUALIZATION: "nr1.createVisualization",
   PUBLISH_NERDPACK: "nr1.publishNerdpack",
   DEPLOY_NERDPACK: "nr1.deployNerdpack",
   UNDEPLOY_NERDPACK: "nr1.undeployNerdpack",

@@ -21,6 +21,7 @@ import {
   subscribeNerdpack,
   undeployNerdpack,
   unsubscribeNerdpack,
+  createVisualization,
 } from "./extension-commands/index";
 
 /**********
@@ -69,6 +70,10 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand(
       COMMANDS.SEARCH_DEVELOPER_DOCS,
       searchDevDocs
+    ),
+    vscode.commands.registerCommand(
+      COMMANDS.CREATE_VISUALIZATION,
+      createVisualization
     )
   );
 }
