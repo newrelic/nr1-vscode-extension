@@ -16,3 +16,4 @@ export { default as showCatalogInfo } from "./show-catalog-info";
 export { default as subscribeNerdpack } from "./subscribe-nerdpack";
 export { default as undeployNerdpack } from "./undeploy-nerdpack";
 export { default as unsubscribeNerdpack } from "./unsubscribe-nerdpack";
+export { default as createVisualization } from "./create-visualization";

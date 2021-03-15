@@ -15,7 +15,7 @@
     "theme": "light"
   },
   "license": "SEE LICENSE IN LICENSE.txt",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "publisher": "new-relic",
   "engines": {
     "vscode": "^1.44.0"
@@ -42,7 +42,8 @@
     "onCommand:nr1.generateUuid",
     "onCommand:nr1.openDeveloperDocs",
     "onCommand:nr1.listSubscriptions",
-    "onCommand:nr1.searchDeveloperDocs"
+    "onCommand:nr1.searchDeveloperDocs",
+    "onCommand:nr1.createVisualization"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -124,6 +125,10 @@
       {
         "command": "nr1.listSubscriptions",
         "title": "New Relic (profile): show subscribed nerdpacks"
+      },
+      {
+        "command": "nr1.createVisualization",
+        "title": "New Relic (nerdpack): create a visualization"
       }
     ]
   },
