@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/newrelic/nr1-vscode-extension/compare/v1.0.7...v1.1.0) (2021-03-16)
+
+
+### Bug Fixes
+
+* **Commands:** Update publish and deploy commands to use tag instead of channel ([ac48c57](https://github.com/newrelic/nr1-vscode-extension/commit/ac48c57302bb5b88d9eb32f7f5754a769ac21893))
+
+
+### Features
+
+* add command to create a visualization ([edcb37b](https://github.com/newrelic/nr1-vscode-extension/commit/edcb37b4df41afe7fb9453104ef1672c4d245d7d))
+
 ## [1.0.7](https://github.com/newrelic/nr1-vscode-extension/compare/v1.0.6...v1.0.7) (2020-09-25)
 
 
