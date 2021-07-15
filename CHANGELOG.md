@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/newrelic/nr1-vscode-extension/compare/v1.1.0...v1.2.0) (2021-07-15)
+
+
+### Features
+
+* add snippets for all SDK components ([a842200](https://github.com/newrelic/nr1-vscode-extension/commit/a84220047e85e5d67193d0ec24c81fefb59c1191))
+
 # [1.1.0](https://github.com/newrelic/nr1-vscode-extension/compare/v1.0.7...v1.1.0) (2021-03-16)
 
 
