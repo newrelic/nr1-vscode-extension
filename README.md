@@ -76,12 +76,9 @@ These are the features currently supported by this extension.
 
 ### Snippets
 
-| Trigger                         | Content                                                 |
-| ------------------------------- | ------------------------------------------------------- |
-| `nerdgraph->`                   | nr1 NerdGraphQuery component                            |
-| `button->`                      | nr1 Button component                                    |
-| `reporting events by account->` | `gql` Query for reporting events by account             |
-| `pageview tables->`             | nr1 TableChart component with PageView count NRQL query |
+There are snippets for each component listed on [developer.newrelic.com](https://developer.newrelic.com/explore-docs/intro-to-sdk/), each trigger is preceded by `NR1` to make them easy to access.
+
+If you notice any components are missing please open an issue, or you can contribute the snippet yourself using the guidelines below.
 
 ## Contributing
 
