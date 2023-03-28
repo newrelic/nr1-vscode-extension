@@ -1,4 +1,4 @@
-[![Community Project header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Community_Project.png)](https://opensource.newrelic.com/oss-category/#community-project)
+[![Community Project header](https://github.com/newrelic/opensource-website/blob/master/src/images/categories/Archived.png)](https://opensource.newrelic.com/oss-category/#community-project)
 
 [![Badge for version for Visual Studio Code extension](https://vsmarketplacebadge.apphb.com/version-short/new-relic.nr1.svg?color=blue&style=?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=new-relic.nr1)
 [![Installs](https://vsmarketplacebadge.apphb.com/installs-short/new-relic.nr1.svg?color=blue&style=flat-square)](https://marketplace.visualstudio.com/items?itemName=new-relic.nr1)
